@@ -227,7 +227,7 @@
             </div>
         </section>
 
-        <!-- Second Screen: Featured Category Grid (Nine-Square Grid) -->
+        <!-- 第二屏：精选品类九宫格 -->
         <section class="container mx-auto px-4 py-16">
             <h2 class="text-3xl font-bold text-center mb-8">精选品类</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-8">
@@ -297,19 +297,26 @@
             </div>
         </section>
 
-        <!-- Lightweight scroll guide -->
-        <section class="container mx-auto px-4 py-8 flex justify-between items-center text-sm text-gray-600">
-            <div class="flex items-center space-x-2">
-                <span class="scroll-down-arrow">▼</span>
-                <span class="text-base">Find more of our art!</span>
+        <!-- 新增的带背景图的视觉引导区 -->
+        <section class="relative w-full overflow-hidden rounded-3xl mt-12 h-64 sm:h-80">
+            <!-- 背景图容器 -->
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x800/1e293b/ffffff?text=Join+Us+Background');"></div>
+            <!-- 渐变蒙版，用于突出文字 -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80"></div>
+            <!-- 内容层 -->
+            <div class="relative z-10 w-full h-full flex flex-col justify-end items-center text-white p-8">
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="px-8 py-3 text-center w-full font-semibold text-gray-900 bg-white rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-300">
+                        发现更多艺术品
+                    </a>
+                    <a href="#" class="px-8 py-3 text-center w-full font-semibold text-white bg-transparent border-2 border-white rounded-full shadow-lg hover:bg-white hover:text-gray-900 transition-colors duration-300">
+                        成为创作者
+                    </a>
+                </div>
             </div>
-            <a href="#" class="flex items-center space-x-2 py-2 px-4 border border-gray-300 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                <span>成为创作者</span>
-                <span>→</span>
-            </a>
         </section>
 
-        <!-- Third Screen: Community Waterfall Flow -->
+        <!-- 第三屏：社区瀑布流 -->
         <section class="container mx-auto px-4 py-8">
             <h2 class="text-3xl font-bold text-center mb-8">AI 创作社区</h2>
             <!-- Placeholder for a grid or waterfall layout -->
