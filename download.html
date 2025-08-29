@@ -1,252 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curated Designs</title>
-    <!-- 使用 Inter 字体，加载 Font Awesome 图标库 -->
+    <!-- 使用 Inter 字体 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 用于图标 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fcfbf9; /* 柔和的偏白背景 */
+            background-color: #fcfbf9;
             color: #333;
         }
-        .section-title {
-            text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+        /* 自定义 Tailwind 模糊效果 */
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- 分类导航栏 - 保持简洁和圆润的设计 -->
+    <!-- 顶部导航栏 - 重做 -->
+    <header class="bg-white/80 backdrop-blur-sm py-6 px-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="font-bold text-3xl text-gray-900">LOGO</div>
+            <nav class="hidden md:flex space-x-10 text-lg text-gray-600 font-medium">
+                <a href="#" class="hover:text-gray-900 transition-colors">商品</a>
+                <a href="#" class="hover:text-gray-900 transition-colors">创作者</a>
+                <a href="#" class="hover:text-gray-900 transition-colors">下载App</a>
+                <a href="#" class="hover:text-gray-900 transition-colors">关于我们</a>
+            </nav>
+            <div class="space-x-6 hidden md:block">
+                <a href="#" class="font-medium text-gray-600 hover:text-gray-900 transition-colors">登录</a>
+            </div>
+            <!-- 移动端汉堡菜单 -->
+            <button class="md:hidden text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner - 新设计 -->
+    <section class="container mx-auto px-4 py-16 md:py-24 lg:py-32">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+            <!-- 左侧内容 -->
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-wide text-gray-900">
+                    发现非凡，<br class="hidden md:inline">创造无限可能
+                </h1>
+                <p class="text-xl sm:text-2xl mt-4 mb-8 font-light text-gray-600 max-w-xl mx-auto md:mx-0">
+                    一个专为设计师和创意爱好者打造的灵感平台。
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center md:justify-start">
+                    <a href="#" class="px-8 py-3 bg-gray-900 text-white rounded-full font-bold shadow-xl hover:bg-black transform hover:scale-105 transition duration-300">
+                        探索灵感
+                    </a>
+                    <a href="#" class="px-8 py-3 text-gray-800 border-2 border-gray-400 rounded-full font-bold hover:bg-gray-200 transform hover:scale-105 transition duration-300">
+                        成为创作者
+                    </a>
+                </div>
+            </div>
+            <!-- 右侧视觉展示 -->
+            <div class="md:w-1/2 relative flex justify-center items-center">
+                <div class="w-full h-[300px] md:h-[500px] relative">
+                    <!-- 大图 -->
+                    <img src="https://placehold.co/400x500/b0c4de/333?text=Design+Collage" alt="Creative Design Collage" class="w-full h-full object-cover rounded-3xl shadow-2xl">
+                    <!-- 小图 1 -->
+                    <img src="https://placehold.co/150x200/d4e4e9/555?text=Art+1" alt="Art 1" class="absolute -top-8 -left-8 w-24 md:w-40 rounded-xl shadow-lg transform rotate-6">
+                    <!-- 小图 2 -->
+                    <img src="https://placehold.co/200x150/e4d4e9/555?text=Art+2" alt="Art 2" class="absolute -bottom-8 -right-8 w-32 md:w-52 rounded-xl shadow-lg transform -rotate-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- App 下载按钮部分 - 重做 -->
+        <div class="mt-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800 text-center">下载APP</h2>
+            <div class="flex flex-wrap justify-center items-center gap-4 sm:flex-nowrap sm:justify-center">
+                <!-- Apple App Store -->
+                <a href="#" class="flex items-center gap-3 bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-black transition duration-300 w-full sm:w-auto justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.5 12.5c0-1.72-1.2-3.1-2.9-3.1-1.71 0-2.88 1.43-2.88 3.1 0 1.63 1.17 3.03 2.88 3.03 1.7 0 2.9-1.42 2.9-3.03zM15 4c-1.34 0-2.52.88-3.04 2.1-.52-.16-.96-.28-1.28-.28-1.57 0-2.8 1.25-2.8 2.8s1.23 2.8 2.8 2.8c.28 0 .68-.05 1.16-.14.28.6.6 1.15.97 1.66.52.73 1.12 1.48 1.83 2.22.46.48.96 1 1.48 1.54.55.57 1.15 1.18 1.77 1.82.16.16.32.32.48.48.24.23.49.46.75.68.27.23.54.44.82.65.29.2.58.4.88.58.29.18.6.34.9.48.3.15.6.28.9.38.3.1.6.18.9.22.3.04.6.06.9.06.6 0 1.2-.2 1.8-.6.5-.3.9-.8 1.2-1.5.3-.7.5-1.5.5-2.4 0-1.5-.7-2.9-1.9-4.2-1.2-1.3-2.8-2.5-4.6-3.7-.4-.2-.8-.4-1.2-.5-.4-.1-.8-.2-1.2-.2zm-3.5 1.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    <span>App Store</span>
+                </a>
+                <!-- Google Play -->
+                <a href="#" class="flex items-center gap-3 bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 w-full sm:w-auto justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.01 1.99L5.33 12.01 12.01 22 18.69 12.01 12.01 1.99zM12 14.5L7.5 7.5l4.5-4.5V14.5zm0 0l4.5 7v-7.5L12 14.5z"/></svg>
+                    <span>Google Play</span>
+                </a>
+                <!-- Android PKG -->
+                <a href="#" class="flex items-center gap-3 bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 w-full sm:w-auto justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.4 15.6c-.7.7-1.4 1.2-2.1 1.5l.7-2.2c-.6-.7-.9-1.6-.9-2.5 0-1.8 1.4-3.2 3.2-3.2.9 0 1.8.4 2.5 1.1l-1.1 1.1c-.4-.4-.9-.6-1.4-.6-.9 0-1.6.7-1.6 1.6 0 .5.3 1 .6 1.4l-1.1 1.1zm3.6-3.6l1.1 1.1c.4.4.6.9.6 1.4 0 .9-.7 1.6-1.6 1.6-.5 0-1-.3-1.4-.6l-1.1-1.1zm-1.2-1.2l-1.1-1.1c-.4-.4-.6-.9-.6-1.4 0-.9.7-1.6 1.6-1.6.5 0 1 .3 1.4.6l1.1 1.1z"/></svg>
+                    <span>安卓PKG</span>
+                </a>
+                <!-- Galaxy Store -->
+                <a href="#" class="flex items-center gap-3 bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 w-full sm:w-auto justify-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L9.19 8.62L2 9.27L7.09 13.91L5.64 21.08L12 17.5L18.36 21.08L16.91 13.91L22 9.27L14.81 8.62L12 2Z"/></svg>
+                    <span>Galaxy Store</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类导航 -->
     <section class="bg-white py-3 px-4 shadow-sm">
         <div class="container mx-auto text-center overflow-x-auto whitespace-nowrap scrollbar-hide">
-            <span class="text-sm text-gray-500 mr-4">Categories:</span>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Canvas Bags</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Mouse Pads</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Posters</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Mugs</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Pillows</a>
+            <span class="text-sm text-gray-500 mr-4">分类导航：</span>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">帆布包</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">鼠标垫</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">海报</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">杯子</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">抱枕</a>
         </div>
     </section>
 
-    <!-- 英雄区 - 全新设计，参考Nike与Apple极简风格 -->
-    <section class="container mx-auto px-4 py-16 text-center">
-        <div class="relative w-full overflow-hidden rounded-3xl">
-            <!-- 核心文案区域，留出大量呼吸空间 -->
-            <div class="relative z-10 p-4 md:p-12 lg:p-24 flex flex-col items-center justify-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-gray-800 drop-shadow-sm">
-                    Designs That Define Your Style
-                </h1>
-                <p class="text-lg sm:text-xl md:text-2xl mt-4 mb-8 text-gray-600">
-                    A curated collection of unique creations.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#" class="px-8 py-4 bg-gray-800 text-white rounded-full font-medium hover:bg-gray-900 transition duration-300 shadow-xl">
-                        Explore Now
-                    </a>
-                    <a href="#" class="px-8 py-4 bg-transparent text-gray-800 border border-gray-400 rounded-full font-medium hover:bg-gray-100 transition duration-300">
-                        Become a Creator
-                    </a>
-                </div>
-            </div>
-
-            <!-- App 下载按钮部分 - 保持简洁的并列排布和一致的风格 -->
-            <div class="mt-12">
-                <h2 class="text-xl md:text-2xl font-semibold mb-4 text-gray-700">Download Our App</h2>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <i class="fab fa-apple"></i>
-                        <span>App Store</span>
-                    </a>
-                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <i class="fab fa-google-play"></i>
-                        <span>Google Play</span>
-                    </a>
-                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <i class="fa-solid fa-store"></i>
-                        <span>Galaxy Store</span>
-                    </a>
-                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
-                        <i class="fa-brands fa-android"></i>
-                        <span>Android Package</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 热门产品区 - 卡片设计更精致，阴影更柔和 -->
+    <!-- 热门产品区 -->
     <section class="container mx-auto px-4 py-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Popular Custom Products</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">热门定制商品</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-8">
-            <!-- 产品卡片 -->
+            <!-- 产品卡片，共8个 -->
+            <!-- 卡片 1 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+1" alt="Product 1" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$25.00</p>
                 </div>
             </div>
+            <!-- 卡片 2 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+2" alt="Product 2" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$30.00</p>
                 </div>
             </div>
+            <!-- 卡片 3 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+3" alt="Product 3" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$18.50</p>
                 </div>
             </div>
+            <!-- 卡片 4 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+4" alt="Product 4" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$45.00</p>
                 </div>
             </div>
+            <!-- 卡片 5 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+5" alt="Product 5" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$22.00</p>
                 </div>
             </div>
+            <!-- 卡片 6 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+6" alt="Product 6" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$35.00</p>
                 </div>
             </div>
+            <!-- 卡片 7 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+7" alt="Product 7" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$28.00</p>
                 </div>
             </div>
+            <!-- 卡片 8 -->
             <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+8" alt="Product 8" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-semibold text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">商品标题</h3>
                     <p class="text-gray-500 text-sm">$19.99</p>
                 </div>
             </div>
         </div>
         <a href="#" class="mt-12 inline-block px-8 py-4 bg-gray-200 text-gray-800 rounded-full font-medium shadow-md hover:bg-gray-300 transition duration-300">
-            View More Products
+            查看更多商品
         </a>
     </section>
 
-    <!-- 创作者招募区 - 流程图设计更加简洁直观 -->
+    <!-- 创作者招募 -->
     <section class="bg-white py-12">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Become a Creator</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">创作者招募</h2>
             <div class="flex flex-wrap justify-center items-center gap-8 mt-8 text-gray-600">
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
                     <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                    <p>Upload Work</p>
+                    <p>上传作品</p>
                 </div>
                 <svg class="w-6 h-6 text-gray-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
                     <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    <p>Select Template</p>
+                    <p>选择模版</p>
                 </div>
                 <svg class="w-6 h-6 text-gray-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
                     <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                    <p>Publish & Go Live</p>
+                    <p>上架平台</p>
                 </div>
                 <svg class="w-6 h-6 text-gray-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
                     <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 10v2m-6-6H4m12 0h2"></path></svg>
-                    <p>Earn Royalties</p>
+                    <p>获得收益</p>
                 </div>
             </div>
             <a href="#" class="mt-8 inline-block px-8 py-4 bg-gray-800 text-white rounded-full font-medium shadow-lg hover:bg-gray-900 transition duration-300">
-                Join Now
+                立即入驻
             </a>
         </div>
     </section>
 
-    <!-- 平台优势区 - 卡片设计更精致，阴影更柔和 -->
+    <!-- 平台优势 -->
     <section class="container mx-auto px-4 py-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Our Advantages</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">平台优势</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             <div class="bg-white rounded-2xl p-6 shadow-xl">
                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m7-2V6a2 2 0 012-2h2a2 2 0 012 2v2m-6-2h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2z"></path></svg>
-                <h3 class="font-semibold text-lg mb-2">Wide Product Range</h3>
-                <p class="text-gray-500 text-sm">Offer your designs on a variety of products, from apparel to home decor.</p>
+                <h3 class="font-semibold text-lg mb-2">多品类支持</h3>
+                <p class="text-gray-500 text-sm">提供T恤、马克杯、海报等多种产品类型。</p>
             </div>
             <div class="bg-white rounded-2xl p-6 shadow-xl">
                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                <h3 class="font-semibold text-lg mb-2">High-Quality Production</h3>
-                <p class="text-gray-500 text-sm">We handle the printing and shipping, ensuring every item meets a high standard.</p>
+                <h3 class="font-semibold text-lg mb-2">高品质生产</h3>
+                <p class="text-gray-500 text-sm">我们处理所有打印和物流，确保每个产品都品质卓越。</p>
             </div>
             <div class="bg-white rounded-2xl p-6 shadow-xl">
                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9v2m0 4v2m-4-4h.01M3 6h18M3 12h18M3 18h18"></path></svg>
-                <h3 class="font-semibold text-lg mb-2">Automated Payouts</h3>
-                <p class="text-gray-500 text-sm">Receive your earnings automatically with a simple and transparent revenue share model.</p>
+                <h3 class="font-semibold text-lg mb-2">自动分成</h3>
+                <p class="text-gray-500 text-sm">通过简单透明的收入分成模式，自动获得您的收益。</p>
             </div>
         </div>
     </section>
 
-    <!-- 创作者展示区（瀑布流） - 卡片设计更精致，阴影更柔和 -->
+    <!-- 创作者作品推荐 -->
     <section class="container mx-auto px-4 py-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Creator Showcase</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-            <!-- 瀑布流布局的图片卡片 -->
-            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/600x800/e9d4d4/555?text=Artwork+1" alt="Artwork 1" class="w-full h-full object-cover">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">创作者作品推荐</h2>
+        <div class="columns-2 md:columns-3 lg:columns-4 gap-4 mt-8">
+            <!-- 瀑布流布局的图片卡片，使用 Tailwind 的 columns 布局实现 -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl mb-4 break-inside-avoid">
+                <img src="https://placehold.co/600x800/e9d4d4/555?text=作品+1" alt="Artwork 1" class="w-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
+                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">作品标题 by 创作者名称</p>
                 </div>
             </div>
-            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/800x600/d4e9e4/555?text=Artwork+2" alt="Artwork 2" class="w-full h-full object-cover">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl mb-4 break-inside-avoid">
+                <img src="https://placehold.co/800x600/d4e9e4/555?text=作品+2" alt="Artwork 2" class="w-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
+                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">作品标题 by 创作者名称</p>
                 </div>
             </div>
-            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/500x700/e4d4e9/555?text=Artwork+3" alt="Artwork 3" class="w-full h-full object-cover">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl mb-4 break-inside-avoid">
+                <img src="https://placehold.co/500x700/e4d4e9/555?text=作品+3" alt="Artwork 3" class="w-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
+                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">作品标题 by 创作者名称</p>
                 </div>
             </div>
-            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/700x900/d4d4e9/555?text=Artwork+4" alt="Artwork 4" class="w-full h-full object-cover">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl mb-4 break-inside-avoid">
+                <img src="https://placehold.co/700x900/d4d4e9/555?text=作品+4" alt="Artwork 4" class="w-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
+                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">作品标题 by 创作者名称</p>
                 </div>
             </div>
-            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/600x900/e9d4d4/555?text=Artwork+5" alt="Artwork 5" class="w-full h-full object-cover">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl mb-4 break-inside-avoid">
+                <img src="https://placehold.co/600x900/e9d4d4/555?text=作品+5" alt="Artwork 5" class="w-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
+                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">作品标题 by 创作者名称</p>
                 </div>
             </div>
-            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://placehold.co/800x700/d4e9e4/555?text=Artwork+6" alt="Artwork 6" class="w-full h-full object-cover">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl mb-4 break-inside-avoid">
+                <img src="https://placehold.co/800x700/d4e9e4/555?text=作品+6" alt="Artwork 6" class="w-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
+                    <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">作品标题 by 创作者名称</p>
                 </div>
             </div>
         </div>
         <a href="#" class="mt-12 inline-block px-8 py-4 bg-gray-200 text-gray-800 rounded-full font-medium shadow-md hover:bg-gray-300 transition duration-300">
-            View All Works
+            查看作品按钮
         </a>
     </section>
+
+    <!-- 底部导航 -->
+    <footer class="bg-gray-800 text-gray-400 py-12 px-4">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-8 mb-6">
+                <a href="#" class="hover:text-white transition-colors">关于我们</a>
+                <a href="#" class="hover:text-white transition-colors">创作者入驻</a>
+                <a href="#" class="hover:text-white transition-colors">联系方式</a>
+                <a href="#" class="hover:text-white transition-colors">帮助中心</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-xl hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-xl hover:text-white transition-colors"><i class="fab fa-behance"></i></a>
+                <a href="#" class="text-xl hover:text-white transition-colors"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="text-xl hover:text-white transition-colors"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
