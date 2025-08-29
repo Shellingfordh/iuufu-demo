@@ -26,9 +26,9 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- 顶部导航栏 - 重做 -->
-    <header class="bg-white/80 backdrop-blur-sm py-6 px-4 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
+    <!-- 顶部导航栏 & 分类导航 - 重做 -->
+    <header class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
             <div class="font-bold text-3xl text-gray-900">LOGO</div>
             <nav class="hidden md:flex space-x-10 text-lg text-gray-600 font-medium">
                 <a href="#" class="hover:text-gray-900 transition-colors">商品</a>
@@ -43,6 +43,17 @@
             <button class="md:hidden text-gray-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
+        </div>
+        <!-- 分类导航条 -->
+        <div class="bg-white py-3 px-4 shadow-sm">
+            <div class="container mx-auto text-center overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <span class="text-sm text-gray-500 mr-4">分类导航：</span>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">帆布包</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">鼠标垫</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">海报</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">杯子</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">抱枕</a>
+            </div>
         </div>
     </header>
 
@@ -104,18 +115,6 @@
                     <span>Galaxy Store</span>
                 </a>
             </div>
-        </div>
-    </section>
-
-    <!-- 分类导航 -->
-    <section class="bg-white py-3 px-4 shadow-sm">
-        <div class="container mx-auto text-center overflow-x-auto whitespace-nowrap scrollbar-hide">
-            <span class="text-sm text-gray-500 mr-4">分类导航：</span>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">帆布包</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">鼠标垫</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">海报</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">杯子</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">抱枕</a>
         </div>
     </section>
 
