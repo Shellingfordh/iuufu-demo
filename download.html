@@ -3,161 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aesthetic Prototype</title>
-    <!-- Use Tailwind CSS for a modern, minimalist look -->
+    <title>Curated Designs</title>
+    <!-- 使用 Inter 字体，加载 Font Awesome 图标库 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f3f0; /* Soft off-white background */
+            background-color: #fcfbf9; /* 柔和的偏白背景 */
             color: #333;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
         .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #555;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3rem;
-            height: 2px;
-            background-color: #d1b4a0; /* Accent color */
+            text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header Section -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <!-- Logo and Nav Links -->
-            <div class="flex items-center space-x-8">
-                <a href="#" class="font-bold text-xl text-gray-900">LOGO</a>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300">Shop</a>
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300">Creators</a>
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300">Download App</a>
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300">About Us</a>
-                </div>
-            </div>
-            <!-- Auth and Mobile Menu -->
-            <div class="flex items-center space-x-4">
-                <a href="#" class="hidden md:block text-gray-600 hover:text-gray-900 transition duration-300">Login</a>
-                <button class="md:hidden text-gray-600 hover:text-gray-900 transition duration-300 focus:outline-none">
-                    <!-- Hamburger icon -->
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Category Navigation -->
-    <section class="bg-gray-100 py-3 px-4 shadow-sm">
+    <!-- 分类导航栏 - 保持简洁和圆润的设计 -->
+    <section class="bg-white py-3 px-4 shadow-sm">
         <div class="container mx-auto text-center overflow-x-auto whitespace-nowrap scrollbar-hide">
             <span class="text-sm text-gray-500 mr-4">Categories:</span>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-white hover:bg-gray-200 inline-block m-1">Canvas Bags</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-white hover:bg-gray-200 inline-block m-1">Mouse Pads</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-white hover:bg-gray-200 inline-block m-1">Posters</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-white hover:bg-gray-200 inline-block m-1">Mugs</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-white hover:bg-gray-200 inline-block m-1">Pillows</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Canvas Bags</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Mouse Pads</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Posters</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Mugs</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 inline-block m-1 shadow-sm">Pillows</a>
         </div>
     </section>
 
-    <!-- Hero Section -->
+    <!-- 英雄区 - 全新设计，参考Nike与Apple极简风格 -->
     <section class="container mx-auto px-4 py-16 text-center">
-        <div class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-lg shadow-xl">
-            <!-- Hero banner image placeholder -->
-            <img src="https://placehold.co/1200x600/e0e0e0/ffffff?text=Hero+Banner" alt="Hero Banner" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center p-4">
-                <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg">Curated Designs for You</h1>
-                <p class="text-white text-lg sm:text-xl md:text-2xl mt-2 mb-6 drop-shadow-lg">Unique products crafted by independent artists.</p>
+        <div class="relative w-full overflow-hidden rounded-3xl">
+            <!-- 核心文案区域，留出大量呼吸空间 -->
+            <div class="relative z-10 p-4 md:p-12 lg:p-24 flex flex-col items-center justify-center">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-gray-800 drop-shadow-sm">
+                    Designs That Define Your Style
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl mt-4 mb-8 text-gray-600">
+                    A curated collection of unique creations.
+                </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#" class="px-6 py-3 bg-white text-gray-800 rounded-full font-medium hover:bg-gray-200 transition duration-300 shadow-lg">Browse Products</a>
-                    <a href="#" class="px-6 py-3 bg-transparent text-white border border-white rounded-full font-medium hover:bg-white hover:text-gray-800 transition duration-300">Become a Creator</a>
+                    <a href="#" class="px-8 py-4 bg-gray-800 text-white rounded-full font-medium hover:bg-gray-900 transition duration-300 shadow-xl">
+                        Explore Now
+                    </a>
+                    <a href="#" class="px-8 py-4 bg-transparent text-gray-800 border border-gray-400 rounded-full font-medium hover:bg-gray-100 transition duration-300">
+                        Become a Creator
+                    </a>
+                </div>
+            </div>
+
+            <!-- App 下载按钮部分 - 保持简洁的并列排布和一致的风格 -->
+            <div class="mt-12">
+                <h2 class="text-xl md:text-2xl font-semibold mb-4 text-gray-700">Download Our App</h2>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fab fa-apple"></i>
+                        <span>App Store</span>
+                    </a>
+                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fab fa-google-play"></i>
+                        <span>Google Play</span>
+                    </a>
+                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-store"></i>
+                        <span>Galaxy Store</span>
+                    </a>
+                    <a href="#" class="bg-gray-800 text-white font-medium py-3 px-6 rounded-full shadow-lg hover:bg-gray-900 transition duration-300 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fa-brands fa-android"></i>
+                        <span>Android Package</span>
+                    </a>
                 </div>
             </div>
         </div>
-        <!-- Download App Button -->
-        <a href="#" class="mt-8 inline-block px-8 py-4 bg-gray-800 text-white rounded-full font-medium shadow-lg hover:bg-gray-900 transition duration-300">
-            Download Our App
-        </a>
     </section>
 
-    <!-- Popular Custom Products Section -->
+    <!-- 热门产品区 - 卡片设计更精致，阴影更柔和 -->
     <section class="container mx-auto px-4 py-12 text-center">
-        <h2 class="section-title">Popular Custom Products</h2>
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Popular Custom Products</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-8">
-            <!-- Product Cards -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <!-- 产品卡片 -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+1" alt="Product 1" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$25.00</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+2" alt="Product 2" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$30.00</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+3" alt="Product 3" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$18.50</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+4" alt="Product 4" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$45.00</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+5" alt="Product 5" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$22.00</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+6" alt="Product 6" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$35.00</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+7" alt="Product 7" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$28.00</p>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="https://placehold.co/400x400/d4e4e9/555?text=Product+8" alt="Product 8" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="font-medium text-lg">Product Title</h3>
+                    <h3 class="font-semibold text-lg">Product Title</h3>
                     <p class="text-gray-500 text-sm">$19.99</p>
                 </div>
             </div>
@@ -167,28 +148,28 @@
         </a>
     </section>
 
-    <!-- Creator Recruitment Section -->
+    <!-- 创作者招募区 - 流程图设计更加简洁直观 -->
     <section class="bg-white py-12">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="section-title">Become a Creator</h2>
+            <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Become a Creator</h2>
             <div class="flex flex-wrap justify-center items-center gap-8 mt-8 text-gray-600">
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                     <p>Upload Work</p>
                 </div>
                 <svg class="w-6 h-6 text-gray-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                     <p>Select Template</p>
                 </div>
                 <svg class="w-6 h-6 text-gray-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                     <p>Publish & Go Live</p>
                 </div>
                 <svg class="w-6 h-6 text-gray-400 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 <div class="flex-1 min-w-[150px] max-w-sm text-center p-4">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 10v2m-6-6H4m12 0h2"></path></svg>
+                    <svg class="w-16 h-16 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 10v2m-6-6H4m12 0h2"></path></svg>
                     <p>Earn Royalties</p>
                 </div>
             </div>
@@ -198,64 +179,64 @@
         </div>
     </section>
 
-    <!-- Platform Advantages Section -->
+    <!-- 平台优势区 - 卡片设计更精致，阴影更柔和 -->
     <section class="container mx-auto px-4 py-12 text-center">
-        <h2 class="section-title">Our Advantages</h2>
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Our Advantages</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            <div class="bg-white rounded-lg p-6 shadow-md">
+            <div class="bg-white rounded-2xl p-6 shadow-xl">
                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m14 0a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m7-2V6a2 2 0 012-2h2a2 2 0 012 2v2m-6-2h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2z"></path></svg>
-                <h3 class="font-medium text-lg mb-2">Wide Product Range</h3>
+                <h3 class="font-semibold text-lg mb-2">Wide Product Range</h3>
                 <p class="text-gray-500 text-sm">Offer your designs on a variety of products, from apparel to home decor.</p>
             </div>
-            <div class="bg-white rounded-lg p-6 shadow-md">
+            <div class="bg-white rounded-2xl p-6 shadow-xl">
                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                <h3 class="font-medium text-lg mb-2">High-Quality Production</h3>
+                <h3 class="font-semibold text-lg mb-2">High-Quality Production</h3>
                 <p class="text-gray-500 text-sm">We handle the printing and shipping, ensuring every item meets a high standard.</p>
             </div>
-            <div class="bg-white rounded-lg p-6 shadow-md">
+            <div class="bg-white rounded-2xl p-6 shadow-xl">
                 <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9v2m0 4v2m-4-4h.01M3 6h18M3 12h18M3 18h18"></path></svg>
-                <h3 class="font-medium text-lg mb-2">Automated Payouts</h3>
+                <h3 class="font-semibold text-lg mb-2">Automated Payouts</h3>
                 <p class="text-gray-500 text-sm">Receive your earnings automatically with a simple and transparent revenue share model.</p>
             </div>
         </div>
     </section>
 
-    <!-- Creator Showcase Section (Waterfall) -->
+    <!-- 创作者展示区（瀑布流） - 卡片设计更精致，阴影更柔和 -->
     <section class="container mx-auto px-4 py-12 text-center">
-        <h2 class="section-title">Creator Showcase</h2>
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-10">Creator Showcase</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-            <!-- Image cards for the waterfall layout -->
-            <div class="relative group rounded-lg overflow-hidden shadow-md">
+            <!-- 瀑布流布局的图片卡片 -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://placehold.co/600x800/e9d4d4/555?text=Artwork+1" alt="Artwork 1" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
                 </div>
             </div>
-            <div class="relative group rounded-lg overflow-hidden shadow-md">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://placehold.co/800x600/d4e9e4/555?text=Artwork+2" alt="Artwork 2" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
                 </div>
             </div>
-            <div class="relative group rounded-lg overflow-hidden shadow-md">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://placehold.co/500x700/e4d4e9/555?text=Artwork+3" alt="Artwork 3" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
                 </div>
             </div>
-            <div class="relative group rounded-lg overflow-hidden shadow-md">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://placehold.co/700x900/d4d4e9/555?text=Artwork+4" alt="Artwork 4" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
                 </div>
             </div>
-            <div class="relative group rounded-lg overflow-hidden shadow-md">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://placehold.co/600x900/e9d4d4/555?text=Artwork+5" alt="Artwork 5" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
                 </div>
             </div>
-            <div class="relative group rounded-lg overflow-hidden shadow-md">
+            <div class="relative group rounded-2xl overflow-hidden shadow-xl">
                 <img src="https://placehold.co/800x700/d4e9e4/555?text=Artwork+6" alt="Artwork 6" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <p class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm p-2">Artwork Title by Artist Name</p>
@@ -266,24 +247,6 @@
             View All Works
         </a>
     </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-4 md:space-y-0 text-sm">
-                <a href="#" class="hover:text-gray-400 transition duration-300">About Us</a>
-                <a href="#" class="hover:text-gray-400 transition duration-300">Join Us</a>
-                <a href="#" class="hover:text-gray-400 transition duration-300">Contact Us</a>
-                <a href="#" class="hover:text-gray-400 transition duration-300">Help Center</a>
-            </div>
-            <div class="mt-6 flex justify-center items-center space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">IG</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Behance</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Weibo</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Pinterest</a>
-            </div>
-        </div>
-    </footer>
 
 </body>
 </html>
