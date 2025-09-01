@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卖出订单明细</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f9;
+        }
+        .container {
+            max-width: 900px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+        <!-- 卖出订单明细 Section -->
+        <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800">
+                卖出订单明细
+            </h1>
+
+            <div class="overflow-x-auto rounded-xl shadow-md">
+                <table class="min-w-full bg-white rounded-xl overflow-hidden">
+                    <thead class="bg-gray-100 text-gray-600 uppercase text-xs sm:text-sm leading-normal">
+                        <tr>
+                            <th class="py-3 px-4 text-left">
+                                <input type="checkbox" class="rounded text-blue-500">
+                                <span class="ml-2">订单ID</span>
+                            </th>
+                            <th class="py-3 px-4 text-left">下单时间</th>
+                            <th class="py-3 px-4 text-left">订单金额</th>
+                            <th class="py-3 px-4 text-left">收益金额</th>
+                            <th class="py-3 px-4 text-left">订单状态</th>
+                            <th class="py-3 px-4 text-left">是否已申请提现</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-3 px-4">
+                                <input type="checkbox" class="rounded text-blue-500">
+                                <span class="ml-2">U8892</span>
+                            </td>
+                            <td class="py-3 px-4">2025-07-12</td>
+                            <td class="py-3 px-4">￥29.90</td>
+                            <td class="py-3 px-4">￥8.90</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-green-200 text-green-800 py-1 px-3 rounded-full text-xs font-semibold">已完成</span>
+                            </td>
+                            <td class="py-3 px-4">否</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-3 px-4">
+                                <input type="checkbox" class="rounded text-blue-500">
+                                <span class="ml-2">U7741</span>
+                            </td>
+                            <td class="py-3 px-4">2025-07-15</td>
+                            <td class="py-3 px-4">￥39.00</td>
+                            <td class="py-3 px-4">￥12.00</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-yellow-200 text-yellow-800 py-1 px-3 rounded-full text-xs font-semibold">处理中</span>
+                            </td>
+                            <td class="py-3 px-4">否</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-3 px-4">
+                                <input type="checkbox" class="rounded text-blue-500">
+                                <span class="ml-2">U6599</span>
+                            </td>
+                            <td class="py-3 px-4">2025-07-18</td>
+                            <td class="py-3 px-4">￥19.90</td>
+                            <td class="py-3 px-4">￥6.50</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-green-200 text-green-800 py-1 px-3 rounded-full text-xs font-semibold">已完成</span>
+                            </td>
+                            <td class="py-3 px-4">否</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-3 px-4">
+                                <input type="checkbox" class="rounded text-blue-500">
+                                <span class="ml-2">U7812</span>
+                            </td>
+                            <td class="py-3 px-4">2025-07-22</td>
+                            <td class="py-3 px-4">￥32.00</td>
+                            <td class="py-3 px-4">￥9.80</td>
+                            <td class="py-3 px-4">
+                                <span class="bg-green-200 text-green-800 py-1 px-3 rounded-full text-xs font-semibold">已完成</span>
+                            </td>
+                            <td class="py-3 px-4">✅ 已提现</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 提现申请 Section -->
+        <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800">
+                💵 提现申请
+            </h1>
+
+            <div class="space-y-4">
+                <p class="text-lg font-medium text-gray-700">
+                    当前可提现收益：<span class="text-blue-600 font-bold">￥123.45</span>
+                    <span class="text-sm text-gray-500 ml-2">（仅计算状态为已完成部分总额）</span>
+                </p>
+                <p class="text-gray-600">
+                    提现方式：<span class="font-medium text-gray-800">PayPal (alice@paypal.com)</span>
+                </p>
+                <p class="text-gray-600">
+                    预计到账：<span class="font-medium text-gray-800">T+7 工作日</span>
+                </p>
+
+                <div class="space-y-2 mt-6">
+                    <label class="flex items-center text-sm text-gray-600">
+                        <input type="checkbox" class="rounded text-blue-500 mr-2">
+                        同意《创作者协议》和《隐私政策》
+                    </label>
+                    <label class="flex items-center text-sm text-gray-600">
+                        <input type="checkbox" class="rounded text-blue-500 mr-2">
+                        我保证收款账户可用，如收款账户无效提款未收到平台不负责任
+                    </label>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button class="w-full sm:w-auto px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-medium rounded-full shadow-md transition duration-200 ease-in-out transform hover:scale-105">
+                        全部提现
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
