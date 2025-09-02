@@ -1,342 +1,432 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 创作者主页</title>
-    <!-- Tailwind CSS CDN -->
+    <title>AI艺术家商店</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for 'Inter' -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f5f2; /* A warm, light background */
+            background-color: #f3f4f6;
+            color: #1f2937;
         }
-        .scroll-container {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* Internet Explorer 10+ */
-        }
+        /* 隐藏横向滚动条 */
         .scroll-container::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-        .tab-content {
             display: none;
         }
-        .tab-content.active {
-            display: block;
+        .scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-gray-100 p-4 sm:p-8 md:p-12">
 
-    <main class="container mx-auto px-4 py-8">
-        <!-- 顶部横幅图片 -->
-        <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
-            <img src="https://placehold.co/1200x400/96d19c/ffffff?text=AI+Creator+Banner" alt="Creator Banner" class="w-full h-full object-cover">
+    <!-- 顶层主容器，包含横幅和个人信息，实现重叠效果 -->
+    <div class="max-w-7xl mx-auto rounded-3xl shadow-xl overflow-hidden bg-white">
+        
+        <!-- 横幅区 -->
+        <div class="relative w-full">
+            <img src="https://placehold.co/1500x320/e5e7eb/6b7280?text=AI艺术创作+横幅" alt="横幅" class="w-full h-auto object-cover">
+        </div>
+        
+        <!-- 主内容容器 -->
+        <div class="flex flex-col md:flex-row p-4 sm:p-8 md:p-12 items-center md:items-start -mt-16 md:-mt-20">
+            
+            <!-- 左侧个人信息区 -->
+            <div class="flex-1 flex flex-col items-center p-4">
+                <!-- 头像，使用负边距实现重叠效果 -->
+                <img src="https://placehold.co/120x120/d1d5db/4b5563?text=头像" alt="头像" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-lg z-10">
+                
+                <!-- 昵称和简介 -->
+                <div class="mt-4 text-center h-20"> <!-- 增加高度以预留三行空间 -->
+                    <div class="flex items-center justify-center text-lg sm:text-xl font-bold">
+                        昵称 <span class="ml-1 text-green-400">✅</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mt-1 max-w-sm">这是一位AI艺术创作者，擅长未来科技风插画，喜欢用代码和像素构建奇妙的世界...</p>
+                </div>
+
+                <!-- 关注和收藏按钮 -->
+                <div class="flex space-x-2 mt-4">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                        ❤️ 关注
+                    </button>
+                    <button class="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                        ⭐ 收藏
+                    </button>
+                </div>
+
+                <!-- 社交媒体链接 -->
+                <div class="flex space-x-4 mt-4 text-gray-700">
+                    <a href="#" class="hover:text-indigo-600">🔗 Threads</a>
+                    <a href="#" class="hover:text-indigo-600">🐦 Twitter</a>
+                    <a href="#" class="hover:text-indigo-600">📸 IG</a>
+                </div>
+            </div>
+
+            <!-- 右侧轮播图区 -->
+            <div class="flex-1 flex items-center justify-center p-4">
+                <div class="relative w-full max-w-sm md:max-w-md aspect-square rounded-xl shadow-lg overflow-hidden">
+                    <img id="carousel-image" src="https://placehold.co/500x500/94a3b8/0f172a?text=商品+1" alt="商品轮播图" class="w-full h-full object-cover transition-opacity duration-500">
+                    
+                    <!-- 轮播导航按钮 -->
+                    <div class="absolute inset-0 flex items-center justify-between p-4">
+                        <button id="prev-btn" class="text-white bg-gray-800/50 hover:bg-gray-800/80 p-2 rounded-full transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="next-btn" class="text-white bg-gray-800/50 hover:bg-gray-800/80 p-2 rounded-full transition-colors">
+                            <svg xmlns="http://www.w3.org/200_svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="p-4 sm:p-8">
+            <!-- 分类导航栏 -->
+            <div class="bg-gray-200 py-4 px-4 sm:px-8 rounded-xl mb-8">
+                <h2 class="text-lg font-semibold mb-4 text-gray-700">分类导航</h2>
+                <div class="flex flex-wrap justify-center sm:justify-start gap-4">
+                    <button class="flex items-center space-x-2 bg-white text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-600 hover:text-white transition-colors">
+                        <span class="text-xl">👜</span> <span>帆布包</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-white text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-600 hover:text-white transition-colors">
+                        <span class="text-xl">🎮</span> <span>鼠标垫</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-white text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-600 hover:text-white transition-colors">
+                        <span class="text-xl">🖼</span> <span>海报</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-white text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-600 hover:text-white transition-colors">
+                        <span class="text-xl">☕</span> <span>杯子</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-white text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-600 hover:text-white transition-colors">
+                        <span class="text-xl">🛏</span> <span>抱枕</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 商品展示区 -->
+            <h2 class="text-xl font-bold mb-4 text-gray-800">商品展示区</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 商品卡片 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=帆布包A" alt="帆布包A" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">帆布包A</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥99</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=鼠标垫B" alt="鼠标垫B" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">鼠标垫B</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥69</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=海报C" alt="海报C" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">海报C</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥129</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=杯子D" alt="杯子D" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">杯子D</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥88</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=帆布包E" alt="帆布包E" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">帆布包E</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥79</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=鼠标垫F" alt="鼠标垫F" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">鼠标垫F</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥199</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=海报G" alt="海报G" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">海报G</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥139</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=杯子H" alt="杯子H" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">杯子H</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥109</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=帆布包I" alt="帆布包I" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">帆布包I</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥129</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=鼠标垫J" alt="鼠标垫J" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">鼠标垫J</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥59</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=海报K" alt="海报K" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">海报K</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥109</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=杯子L" alt="杯子L" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">杯子L</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥78</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=帆布包M" alt="帆布包M" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">帆布包M</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥149</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=鼠标垫N" alt="鼠标垫N" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">鼠标垫N</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥89</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=海报O" alt="海报O" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">海报O</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥119</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <img src="https://placehold.co/400x400/94a3b8/0f172a?text=杯子P" alt="杯子P" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <h3 class="font-medium text-gray-800">杯子P</h3>
+                        <p class="text-indigo-600 font-bold mt-1">￥98</p>
+                        <button class="mt-4 bg-gray-800 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-indigo-600 transition-colors">
+                            🛒 加入购物车
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- 分页导航 -->
+            <div class="mt-8 flex justify-center items-center space-x-2">
+                <button class="bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-full hover:bg-gray-300 transition-colors">上一页</button>
+                <div class="flex space-x-1">
+                    <button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full">1</button>
+                    <button class="bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-full hover:bg-gray-300">2</button>
+                    <button class="bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-full hover:bg-gray-300">3</button>
+                    <span class="py-2 px-1 text-gray-500">...</span>
+                    <button class="bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-full hover:bg-gray-300">6</button>
+                </div>
+                <button class="bg-gray-200 text-gray-600 font-medium py-2 px-4 rounded-full hover:bg-gray-300 transition-colors">下一页</button>
+            </div>
         </div>
 
-        <!-- 顶部创作者信息区 -->
-        <!-- 调整了定位和阴影，使其与头像配合 -->
-        <header class="relative flex flex-col md:flex-row items-center justify-between p-6 bg-white rounded-3xl shadow-lg -mt-16 mb-8 z-10">
-            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-                <!-- 调整了头像大小、边框和负外边距，使其突出到横幅上 -->
-                <img src="https://placehold.co/120x120/4f52e2/ffffff?text=Creator" alt="Creator Avatar" class="w-28 h-28 rounded-full border-4 border-white shadow-xl -mt-14 z-20">
-                <div class="text-center md:text-left mt-6">
-                    <div class="flex items-center justify-center md:justify-start space-x-2">
-                        <h1 class="text-3xl font-bold">AI 艺术创作者</h1>
-                        <span class="text-lg font-bold text-blue-500" title="认证创作者">✅</span>
-                    </div>
-                    <p class="mt-2 text-gray-600 max-w-lg leading-relaxed">
-                        这是一位擅长未来科技风插画的 AI 艺术创作者，作品充满想象力和独特的视觉风格。通过 AI 技术，他探索着人与机器共创艺术的无限可能。
-                    </p>
-                    <div class="flex justify-center md:justify-start space-x-4 mt-4 text-gray-500">
-                        <a href="#" class="hover:text-gray-900 transition-colors duration-300">
-                            <!-- Threads Icon (Placeholder) -->
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.692A9.966 9.966 0 0112 12c4.97 0 9-3.582 9-8s-4.03-8-9-8-9 3.582-9 8c0 1.954.712 3.744 1.897 5.143L3 20l1.395-3.692A9.966 9.966 0 0112 12c4.97 0 9-3.582 9-8s-4.03-8-9-8z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="hover:text-gray-900 transition-colors duration-300">
-                            <!-- Twitter Icon (Placeholder) -->
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.46 6c-.84.37-1.74.62-2.67.75.96-.58 1.7-1.5 2.05-2.6-.9.54-1.9.93-2.95 1.15-.84-.9-2.04-1.47-3.37-1.47-2.54 0-4.6 2.06-4.6 4.6 0 .36.04.7.12 1.03-3.82-.19-7.2-2.02-9.46-4.82-.4.69-.63 1.48-.63 2.33 0 1.59.81 2.99 2.04 3.82-.75 0-1.45-.23-2.06-.57v.06c0 2.23 1.58 4.09 3.67 4.5-.38.1-.78.15-1.19.15-.29 0-.58-.03-.86-.08.58 1.82 2.26 3.15 4.25 3.19-1.56 1.22-3.53 1.95-5.67 1.95-.37 0-.74-.02-1.1-.06C3.96 20.29 6.2 21 8.65 21c9.19 0 14.24-7.63 14.24-14.24 0-.22 0-.44-.02-.66.97-.7 1.8-1.58 2.45-2.58z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="hover:text-gray-900 transition-colors duration-300">
-                            <!-- Instagram Icon (Placeholder) -->
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2c2.71 0 3.05.01 4.12.06 1.07.05 1.76.22 2.22.42.5.21.84.55 1.16.88.32.32.66.66.88 1.16.2.46.37 1.15.42 2.22.05 1.07.06 1.41.06 4.12s-.01 3.05-.06 4.12c-.05 1.07-.22 1.76-.42 2.22-.21.55-.55.88-.88 1.16-.32.32-.66.66-1.16.88-.46.2-1.15.37-2.22.42-1.07.05-1.41.06-4.12.06s-3.05-.01-4.12-.06c-1.07-.05-1.76-.22-2.22-.42-.5-.21-.84-.55-1.16-.88-.32-.32-.66-.66-.88-1.16-.2-.46-.37-1.15-.42-2.22-.05-1.07-.06-1.41-.06-4.12s.01-3.05.06-4.12c.05-1.07.22-1.76.42-2.22.21-.55.55-.88.88-1.16.32-.32.66-.66 1.16-.88.46-.2 1.15-.37 2.22-.42C8.95 2.01 9.29 2 12 2zm0 2c-2.67 0-2.95.01-4.04.06-1.09.05-1.57.2-1.89.33-.42.17-.7.4-.98.69s-.52.56-.69.98c-.13.32-.28.8-.33 1.89-.05 1.09-.06 1.37-.06 4.04s.01 2.95.06 4.04c.05 1.09.2 1.57.33 1.89.17.42.4.7.69.98s.56.52.69.98c.13.32.8.28 1.89.33 1.09.05 1.37.06 4.04.06s2.95-.01 4.04-.06c1.09-.05 1.57-.2 1.89-.33.17-.42.4-.7.69-.98s.56-.52.98-.69c.32-.13.8-.28 1.89-.33-1.09-.05-1.37-.06-4.04-.06zm0 4.5c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm4.5-5.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex space-x-4 mt-6 md:mt-0">
-                <button class="flex items-center space-x-2 px-6 py-3 bg-gray-900 text-white rounded-full shadow-md hover:bg-gray-700 transition-colors duration-300">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                    <span>关注</span>
-                </button>
-                <button class="flex items-center space-x-2 px-6 py-3 bg-white border border-gray-300 text-gray-900 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.18-.544.664-.848 1.13-.848s.95.304 1.13.848l1.6 4.885 5.14.747c.6.087.84.82.41 1.23l-3.72 3.62.88 5.12c.1.58-.51 1.03-.98.77l-4.6-2.42-.88 5.12c-.1.58-.51 1.03-.98.77l-4.6-2.42-.88 5.12c-.1-.58.1-1.23.41-1.23l5.14-.747 1.6-4.885z" />
-                    </svg>
-                    <span>收藏</span>
-                </button>
-            </div>
-        </header>
-
-        <!-- 商品展示区 -->
-        <section class="bg-white rounded-3xl shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-bold mb-6">商品展示区</h2>
-            <!-- 分类导航 Tab -->
-            <div class="flex overflow-x-auto scroll-container border-b border-gray-200">
-                <button class="tab-button px-6 py-3 font-semibold text-gray-900 border-b-2 border-gray-900 focus:outline-none whitespace-nowrap" data-tab="all">全部</button>
-                <button class="tab-button px-6 py-3 font-semibold text-gray-500 hover:text-gray-900 focus:outline-none whitespace-nowrap" data-tab="bag">帆布包</button>
-                <button class="tab-button px-6 py-3 font-semibold text-gray-500 hover:text-gray-900 focus:outline-none whitespace-nowrap" data-tab="pad">鼠标垫</button>
-                <button class="tab-button px-6 py-3 font-semibold text-gray-500 hover:text-gray-900 focus:outline-none whitespace-nowrap" data-tab="poster">海报</button>
-                <button class="tab-button px-6 py-3 font-semibold text-gray-500 hover:text-gray-900 focus:outline-none whitespace-nowrap" data-tab="mug">杯子</button>
-            </div>
-            
-            <!-- 商品内容 -->
-            <div id="tab-all" class="tab-content active mt-6">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    <!-- 商品卡片 -->
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/b1c6e2/ffffff?text=Product+1" alt="Product 1" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">未来科技帆布包</h3>
-                            <p class="text-gray-600">￥99</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/f3b89f/ffffff?text=Product+2" alt="Product 2" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">科幻城市鼠标垫</h3>
-                            <p class="text-gray-600">￥69</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/81c8b3/ffffff?text=Product+3" alt="Product 3" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">赛博朋克海报</h3>
-                            <p class="text-gray-600">￥129</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/a392a8/ffffff?text=Product+4" alt="Product 4" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">AI 幻想风抱枕</h3>
-                            <p class="text-gray-600">￥88</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/e9a263/ffffff?text=Product+5" alt="Product 5" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">几何图形马克杯</h3>
-                            <p class="text-gray-600">￥79</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="tab-bag" class="tab-content mt-6">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/b1c6e2/ffffff?text=Bag+1" alt="Bag 1" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">未来科技帆布包</h3>
-                            <p class="text-gray-600">￥99</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="tab-pad" class="tab-content mt-6">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/f3b89f/ffffff?text=Pad+1" alt="Pad 1" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">科幻城市鼠标垫</h3>
-                            <p class="text-gray-600">￥69</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="tab-poster" class="tab-content mt-6">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/81c8b3/ffffff?text=Poster+1" alt="Poster 1" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">赛博朋克海报</h3>
-                            <p class="text-gray-600">￥129</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="tab-mug" class="tab-content mt-6">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x600/a392a8/ffffff?text=Mug+1" alt="Mug 1" class="w-full h-auto object-cover">
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg">AI 幻想风马克杯</h3>
-                            <p class="text-gray-600">￥88</p>
-                            <button class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-gray-700 transition-colors">加入购物车</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- 创作记录 / 动态区 -->
-        <section class="bg-white rounded-3xl shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-bold mb-6">创作记录 / 动态</h2>
-            <div class="scroll-container flex space-x-4 pb-4">
-                <!-- 动态卡片 1 -->
-                <div class="w-64 flex-shrink-0 bg-gray-50 rounded-2xl shadow-md p-4">
-                    <div class="flex items-center space-x-2 mb-3">
-                        <img src="https://placehold.co/40x40/4f52e2/ffffff" alt="Avatar" class="w-10 h-10 rounded-full">
+        <div class="mt-12 px-4 sm:px-8">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">创作记录 / 动态区</h2>
+            <div class="flex overflow-x-auto scroll-container pb-4 space-x-4">
+                <!-- 动态卡片 -->
+                <div class="flex-none w-64 bg-gray-50 rounded-xl shadow-md p-4">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <img src="https://placehold.co/40x40/d1d5db/4b5563?text=A" alt="作者头像" class="w-10 h-10 rounded-full">
                         <div>
-                            <span class="font-bold">AI 艺术创作者</span>
-                            <p class="text-xs text-gray-500">2 小时前</p>
+                            <p class="font-semibold text-gray-800">作者名</p>
+                            <p class="text-xs text-gray-500">2小时前</p>
                         </div>
                     </div>
-                    <p class="text-sm mb-3">今天尝试了新的 prompt，科幻少女系列有了新进展！</p>
-                    <img src="https://placehold.co/300x400/81c8b3/ffffff?text=Prompt+Art+1" alt="Prompt Art 1" class="w-full rounded-lg mb-3">
-                    <div class="flex items-center space-x-4 text-sm text-gray-500">
-                        <span>❤️ 24</span>
-                        <span>💬 12</span>
-                        <span>🔄 3</span>
+                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">今天尝试了新prompt科幻少女</p>
+                    <img src="https://placehold.co/300x200/94a3b8/0f172a?text=预览图" alt="预览图" class="w-full h-36 object-cover rounded-lg mb-3">
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                        <span class="flex items-center"><span class="text-red-500 mr-1">❤️</span> 24</span>
+                        <span class="flex items-center">💬 12</span>
+                        <span class="flex items-center">🔄 3</span>
                     </div>
                 </div>
-                <!-- 动态卡片 2 -->
-                <div class="w-64 flex-shrink-0 bg-gray-50 rounded-2xl shadow-md p-4">
-                    <div class="flex items-center space-x-2 mb-3">
-                        <img src="https://placehold.co/40x40/4f52e2/ffffff" alt="Avatar" class="w-10 h-10 rounded-full">
+                <div class="flex-none w-64 bg-gray-50 rounded-xl shadow-md p-4">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <img src="https://placehold.co/40x40/d1d5db/4b5563?text=A" alt="作者头像" class="w-10 h-10 rounded-full">
                         <div>
-                            <span class="font-bold">AI 艺术创作者</span>
+                            <p class="font-semibold text-gray-800">作者名</p>
                             <p class="text-xs text-gray-500">昨天</p>
                         </div>
                     </div>
-                    <p class="text-sm mb-3">鼠标垫新设计上线啦，希望大家喜欢！</p>
-                    <img src="https://placehold.co/300x400/f3b89f/ffffff?text=Prompt+Art+2" alt="Prompt Art 2" class="w-full rounded-lg mb-3">
-                    <div class="flex items-center space-x-4 text-sm text-gray-500">
-                        <span>❤️ 102</span>
-                        <span>💬 47</span>
-                        <span>🔄 9</span>
+                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">鼠标垫新设计上线啦</p>
+                    <img src="https://placehold.co/300x200/94a3b8/0f172a?text=预览图" alt="预览图" class="w-full h-36 object-cover rounded-lg mb-3">
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                        <span class="flex items-center"><span class="text-red-500 mr-1">❤️</span> 102</span>
+                        <span class="flex items-center">💬 47</span>
+                        <span class="flex items-center">🔄 9</span>
                     </div>
                 </div>
-                <!-- 动态卡片 3 -->
-                <div class="w-64 flex-shrink-0 bg-gray-50 rounded-2xl shadow-md p-4">
-                    <div class="flex items-center space-x-2 mb-3">
-                        <img src="https://placehold.co/40x40/4f52e2/ffffff" alt="Avatar" class="w-10 h-10 rounded-full">
+                <div class="flex-none w-64 bg-gray-50 rounded-xl shadow-md p-4">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <img src="https://placehold.co/40x40/d1d5db/4b5563?text=A" alt="作者头像" class="w-10 h-10 rounded-full">
                         <div>
-                            <span class="font-bold">AI 艺术创作者</span>
-                            <p class="text-xs text-gray-500">2 天前</p>
+                            <p class="font-semibold text-gray-800">作者名</p>
+                            <p class="text-xs text-gray-500">2天前</p>
                         </div>
                     </div>
-                    <p class="text-sm mb-3">AI 幻想风新作，希望能在评论区看到大家的想法。</p>
-                    <img src="https://placehold.co/300x400/96d19c/ffffff?text=Prompt+Art+3" alt="Prompt Art 3" class="w-full rounded-lg mb-3">
-                    <div class="flex items-center space-x-4 text-sm text-gray-500">
-                        <span>❤️ 56</span>
-                        <span>💬 8</span>
-                        <span>🔄 1</span>
+                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">AI幻想风新作上线</p>
+                    <img src="https://placehold.co/300x200/94a3b8/0f172a?text=预览图" alt="预览图" class="w-full h-36 object-cover rounded-lg mb-3">
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                        <span class="flex items-center"><span class="text-red-500 mr-1">❤️</span> 56</span>
+                        <span class="flex items-center">💬 8</span>
+                        <span class="flex items-center">🔄 1</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- 粉丝评论区 -->
-        <section class="bg-white rounded-3xl shadow-lg p-6 mb-8">
-            <h2 class="text-2xl font-bold mb-6">粉丝评论</h2>
-            <div class="scroll-container flex space-x-4 pb-4">
-                <!-- 评论卡片 1 -->
-                <div class="w-64 flex-shrink-0 bg-gray-50 rounded-2xl shadow-md p-4">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <img src="https://placehold.co/40x40/b1c6e2/ffffff" alt="User Avatar" class="w-10 h-10 rounded-full">
-                        <span class="font-bold text-gray-900">用户A</span>
-                    </div>
-                    <p class="text-sm text-gray-700">作品太酷了！非常喜欢这种风格，已经下单了鼠标垫。</p>
-                    <div class="text-yellow-400 mt-2 text-lg">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                </div>
-                <!-- 评论卡片 2 -->
-                <div class="w-64 flex-shrink-0 bg-gray-50 rounded-2xl shadow-md p-4">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <img src="https://placehold.co/40x40/de95de/ffffff" alt="User Avatar" class="w-10 h-10 rounded-full">
-                        <span class="font-bold text-gray-900">用户B</span>
-                    </div>
-                    <p class="text-sm text-gray-700">希望能多出一些赛博朋克风格的设计，太有感觉了！</p>
-                    <div class="text-yellow-400 mt-2 text-lg">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-                    </div>
-                </div>
-                <!-- 评论卡片 3 -->
-                <div class="w-64 flex-shrink-0 bg-gray-50 rounded-2xl shadow-md p-4">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <img src="https://placehold.co/40x40/8d8aef/ffffff" alt="User Avatar" class="w-10 h-10 rounded-full">
-                        <span class="font-bold text-gray-900">用户C</span>
-                    </div>
-                    <p class="text-sm text-gray-700">非常喜欢 AI 风格的鼠标垫！质感也很好。</p>
-                    <div class="text-yellow-400 mt-2 text-lg">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="bg-white text-gray-600 py-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-4 md:space-y-0 text-sm">
-                <a href="#" class="hover:text-gray-900 transition duration-300">关于我们</a>
-                <a href="#" class="hover:text-gray-900 transition duration-300">创作者入驻</a>
-                <a href="#" class="hover:text-gray-900 transition duration-300">帮助中心</a>
             </div>
         </div>
-    </footer>
+
+        <!-- 粉丝评论区 -->
+        <div class="mt-12 px-4 sm:px-8">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">粉丝评论区</h2>
+            <div class="flex overflow-x-auto scroll-container pb-4 space-x-4">
+                <!-- 评论卡片 -->
+                <div class="flex-none w-64 bg-gray-50 rounded-xl shadow-md p-4">
+                    <p class="font-semibold text-gray-800 mb-1">用户A</p>
+                    <p class="text-sm text-gray-700 mb-2">作品太酷了！</p>
+                    <div class="text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+                <div class="flex-none w-64 bg-gray-50 rounded-xl shadow-md p-4">
+                    <p class="font-semibold text-gray-800 mb-1">用户B</p>
+                    <p class="text-sm text-gray-700 mb-2">希望多出赛博朋克风格～</p>
+                    <div class="text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+                <div class="flex-none w-64 bg-gray-50 rounded-xl shadow-md p-4">
+                    <p class="font-semibold text-gray-800 mb-1">用户C</p>
+                    <p class="text-sm text-gray-700 mb-2">很喜欢AI风格的鼠标垫！</p>
+                    <div class="text-yellow-400">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="bg-gray-800 text-gray-300 text-center py-6 mt-12 rounded-b-3xl">
+            <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-8">
+                <a href="#" class="hover:text-white transition-colors">关于我们</a>
+                <a href="#" class="hover:text-white transition-colors">创作者入驻</a>
+                <a href="#" class="hover:text-white transition-colors">联系方式</a>
+                <a href="#" class="hover:text-white transition-colors">帮助中心</a>
+            </div>
+        </div>
+    </div>
 
     <script>
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
+        // JavaScript实现图片轮播效果
+        window.onload = function() {
+            const carouselImage = document.getElementById('carousel-image');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active classes
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('border-gray-900', 'text-gray-900');
-                    btn.classList.add('text-gray-500');
-                });
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
+            // 轮播图片URL列表，使用方形占位符
+            const images = [
+                'https://placehold.co/500x500/94a3b8/0f172a?text=商品+1',
+                'https://placehold.co/500x500/94a3b8/0f172a?text=商品+2',
+                'https://placehold.co/500x500/94a3b8/0f172a?text=商品+3',
+                'https://placehold.co/500x500/94a3b8/0f172a?text=商品+4'
+            ];
 
-                // Add active classes to the clicked button and corresponding content
-                button.classList.add('border-gray-900', 'text-gray-900');
-                button.classList.remove('text-gray-500');
-                
-                const targetTab = document.getElementById(`tab-${button.dataset.tab}`);
-                if (targetTab) {
-                    targetTab.classList.add('active');
-                }
-            });
-        });
+            let currentIndex = 0;
 
+            function updateImage() {
+                carouselImage.src = images[currentIndex];
+            }
+
+            // 下一张
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            }
+
+            // 上一张
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage();
+            }
+
+            // 添加事件监听器
+            nextBtn.addEventListener('click', nextImage);
+            prevBtn.addEventListener('click', prevImage);
+
+            // 自动轮播，每3秒切换一次
+            setInterval(nextImage, 3000);
+        };
     </script>
 </body>
 </html>
