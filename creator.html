@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI艺术家商店</title>
+    <title>AI艺术家商店 - 个人主页</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 50%, #f0f9ff 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #d0e8fe 100%);
             color: #1a202c;
         }
 
@@ -24,49 +24,66 @@
         }
 
         .product-card {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             background-color: #ffffff;
+            border: 1px solid #e2e8f0;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            background-color: #f7fafc;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .selected-btn {
             background-color: #3b82f6 !important;
             color: white !important;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transform: scale(1.05);
         }
 
+        .animated-gradient {
+            background-size: 200% 200%;
+            animation: moveGradient 5s ease-in-out infinite;
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8 md:p-12 min-h-screen">
 
-    <!-- 顶层主容器 -->
+    <!-- 顶层主容器，增加渐变背景和更深的阴影 -->
     <div class="max-w-7xl mx-auto rounded-3xl shadow-2xl overflow-hidden bg-white transform transition-transform duration-500">
         
-        <!-- 横幅区 -->
-        <div class="relative w-full">
-            <img src="https://placehold.co/1500x320/3182ce/ffffff?text=AI+艺术+创作+店铺+横幅" alt="横幅" class="w-full h-auto object-cover">
+        <!-- 横幅区，使用更具流动感的渐变 -->
+        <div class="relative w-full h-40 md:h-80 bg-gradient-to-r from-cyan-500 to-blue-500 animated-gradient">
+            <!-- 纯色横幅代替了图片 -->
         </div>
         
-        <!-- 主内容容器 -->
-        <div class="flex flex-col md:flex-row p-4 sm:p-8 md:p-12 items-center md:items-start -mt-16 md:-mt-20">
+        <!-- 主内容容器，调整顶部间距 -->
+        <div class="flex flex-col md:flex-row p-4 sm:p-8 md:p-12 items-center md:items-start -mt-20 md:-mt-24">
             
             <!-- 左侧个人信息区 -->
             <div class="flex-1 flex flex-col items-center p-4">
-                <img src="https://placehold.co/120x120/4a5568/ffffff?text=头像" alt="头像" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-xl z-10 transition-transform duration-500 hover:scale-105">
+                <!-- 头像，使用更复杂的渐变 -->
+                <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full border-4 border-white shadow-xl z-10 transition-transform duration-500 hover:scale-105 bg-gradient-to-br from-pink-500 to-purple-600 animated-gradient">
+                    <!-- 纯色头像代替了图片 -->
+                </div>
                 
-                <div class="mt-4 text-center h-20">
-                    <div class="flex items-center justify-center text-lg sm:text-2xl font-bold text-gray-800">
-                        昵称 <span class="ml-2 text-green-500 transition-colors duration-300">✅</span>
+                <div class="mt-6 text-center h-20">
+                    <div class="flex items-center justify-center text-xl sm:text-3xl font-bold text-gray-800">
+                        赛博朋克AI <span class="ml-2 text-green-500 transition-colors duration-300">✅</span>
                     </div>
-                    <p class="text-sm text-gray-600 mt-1 max-w-sm">这是一位AI艺术创作者，擅长未来科技风插画，喜欢用代码和像素构建奇妙的世界...</p>
+                    <p class="text-sm text-gray-600 mt-2 max-w-sm">
+                        这是一位专注于未来科技风的AI艺术创作者，善于用代码和像素构建奇妙、充满想象力的数字世界。
+                    </p>
                 </div>
 
-                <div class="flex space-x-4 mt-4">
+                <div class="flex space-x-4 mt-6">
                     <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                         ❤️ 关注
                     </button>
@@ -75,7 +92,7 @@
                     </button>
                 </div>
 
-                <div class="flex space-x-4 mt-4 text-gray-500">
+                <div class="flex space-x-4 mt-6 text-gray-500">
                     <a href="#" class="hover:text-blue-600 transition-colors duration-200">🔗 Threads</a>
                     <a href="#" class="hover:text-blue-600 transition-colors duration-200">🐦 Twitter</a>
                     <a href="#" class="hover:text-blue-600 transition-colors duration-200">📸 IG</a>
@@ -85,16 +102,17 @@
             <!-- 右侧轮播图区 -->
             <div class="flex-1 flex items-center justify-center p-4">
                 <div class="relative w-full max-w-sm md:max-w-md aspect-square rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-500">
-                    <img id="carousel-image" src="https://placehold.co/500x500/3182ce/ffffff?text=商品+1" alt="商品轮播图" class="w-full h-full object-cover transition-opacity duration-500">
+                    <!-- 轮播图片使用带有文字的占位符，更具设计感 -->
+                    <img id="carousel-image" src="https://placehold.co/800x800/2563eb/ffffff?text=未来科技幻想" alt="AI艺术作品" class="w-full h-full object-cover transition-opacity duration-500">
                     
                     <div class="absolute inset-0 flex items-center justify-between px-4">
-                        <button id="prev-btn" class="text-white bg-black/30 hover:bg-black/50 p-2 rounded-full transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <button id="prev-btn" class="text-white bg-black/40 hover:bg-black/60 p-3 rounded-full transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
-                        <button id="next-btn" class="text-white bg-black/30 hover:bg-black/50 p-2 rounded-full transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <button id="next-btn" class="text-white bg-black/40 hover:bg-black/60 p-3 rounded-full transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
@@ -105,33 +123,33 @@
         
         <!-- 新的合并内容区域 -->
         <div class="p-4 sm:p-8">
-            <h2 class="text-xl font-bold mb-6 text-gray-800 text-center md:text-left">探索AI艺术商品</h2>
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center md:text-left">探索AI艺术商品</h2>
             <div id="shop-section" class="flex flex-col gap-8">
                 <!-- 分类导航 -->
                 <div id="category-buttons" class="flex flex-row overflow-x-auto scroll-container pb-4 gap-4">
                     <button data-category="all" class="flex-none category-btn flex items-center justify-center space-x-2 bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-blue-600 hover:text-white transition-all duration-300">
-                        <span class="text-xl">✨</span> <span>全部</span>
+                        <span class="text-xl">✨</span> <span>全部商品</span>
                     </button>
                     <button data-category="bag" class="flex-none category-btn flex items-center justify-center space-x-2 bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-blue-600 hover:text-white transition-all duration-300">
-                        <span class="text-xl">👜</span> <span>帆布包</span>
+                        <span class="text-xl">👜</span> <span>个性帆布包</span>
                     </button>
                     <button data-category="mousepad" class="flex-none category-btn flex items-center justify-center space-x-2 bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-blue-600 hover:text-white transition-all duration-300">
-                        <span class="text-xl">🎮</span> <span>鼠标垫</span>
+                        <span class="text-xl">🎮</span> <span>赛博鼠标垫</span>
                     </button>
                     <button data-category="poster" class="flex-none category-btn flex items-center justify-center space-x-2 bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-blue-600 hover:text-white transition-all duration-300">
-                        <span class="text-xl">🖼</span> <span>海报</span>
+                        <span class="text-xl">🖼</span> <span>收藏级海报</span>
                     </button>
                     <button data-category="mug" class="flex-none category-btn flex items-center justify-center space-x-2 bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-blue-600 hover:text-white transition-all duration-300">
-                        <span class="text-xl">☕</span> <span>杯子</span>
+                        <span class="text-xl">☕</span> <span>艺术马克杯</span>
                     </button>
                     <button data-category="pillow" class="flex-none category-btn flex items-center justify-center space-x-2 bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-full shadow hover:bg-blue-600 hover:text-white transition-all duration-300">
-                        <span class="text-xl">🛏</span> <span>抱枕</span>
+                        <span class="text-xl">🛏</span> <span>定制抱枕</span>
                     </button>
                 </div>
 
                 <!-- 商品展示区 -->
                 <div>
-                    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div id="product-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         <!-- 商品卡片将由 JavaScript 动态生成 -->
                     </div>
                 </div>
@@ -145,19 +163,19 @@
 
         <!-- 创作记录 / 动态区 -->
         <div class="mt-12 px-4 sm:px-8">
-            <h2 class="text-xl font-bold mb-4 text-gray-800">创作记录 / 动态区</h2>
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">最新创作与动态</h2>
             <div class="flex overflow-x-auto scroll-container pb-4 space-x-4">
-                <!-- 动态卡片 -->
+                <!-- 动态卡片，增加更丰富的颜色和阴影 -->
                 <div class="flex-none w-64 bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-2 mb-2">
-                        <img src="https://placehold.co/40x40/d1d5db/4b5563?text=A" alt="作者头像" class="w-10 h-10 rounded-full">
+                        <div class="w-10 h-10 rounded-full bg-blue-300"></div>
                         <div>
-                            <p class="font-semibold text-gray-800">作者名</p>
+                            <p class="font-semibold text-gray-800">AI极客</p>
                             <p class="text-xs text-gray-500">2小时前</p>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">今天尝试了新prompt科幻少女</p>
-                    <img src="https://placehold.co/300x200/4299e1/ffffff?text=预览图" alt="预览图" class="w-full h-36 object-cover rounded-lg mb-3">
+                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">今天尝试了新prompt：未来都市的雨夜</p>
+                    <div class="w-full h-36 object-cover rounded-lg mb-3 bg-purple-400"></div>
                     <div class="flex justify-between items-center text-gray-500 text-sm">
                         <span class="flex items-center"><span class="text-red-500 mr-1">❤️</span> 24</span>
                         <span class="flex items-center">💬 12</span>
@@ -166,14 +184,14 @@
                 </div>
                 <div class="flex-none w-64 bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-2 mb-2">
-                        <img src="https://placehold.co/40x40/d1d5db/4b5563?text=A" alt="作者头像" class="w-10 h-10 rounded-full">
+                        <div class="w-10 h-10 rounded-full bg-pink-300"></div>
                         <div>
-                            <p class="font-semibold text-gray-800">作者名</p>
+                            <p class="font-semibold text-gray-800">数据诗人</p>
                             <p class="text-xs text-gray-500">昨天</p>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">鼠标垫新设计上线啦</p>
-                    <img src="https://placehold.co/300x200/4299e1/ffffff?text=预览图" alt="预览图" class="w-full h-36 object-cover rounded-lg mb-3">
+                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">新系列鼠标垫已上线，快来挑选吧！</p>
+                    <div class="w-full h-36 object-cover rounded-lg mb-3 bg-teal-400"></div>
                     <div class="flex justify-between items-center text-gray-500 text-sm">
                         <span class="flex items-center"><span class="text-red-500 mr-1">❤️</span> 102</span>
                         <span class="flex items-center">💬 47</span>
@@ -182,14 +200,14 @@
                 </div>
                 <div class="flex-none w-64 bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                     <div class="flex items-center space-x-2 mb-2">
-                        <img src="https://placehold.co/40x40/d1d5db/4b5563?text=A" alt="作者头像" class="w-10 h-10 rounded-full">
+                        <div class="w-10 h-10 rounded-full bg-cyan-300"></div>
                         <div>
-                            <p class="font-semibold text-gray-800">作者名</p>
+                            <p class="font-semibold text-gray-800">像素游侠</p>
                             <p class="text-xs text-gray-500">2天前</p>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">AI幻想风新作上线</p>
-                    <img src="https://placehold.co/300x200/4299e1/ffffff?text=预览图" alt="预览图" class="w-full h-36 object-cover rounded-lg mb-3">
+                    <p class="text-sm text-gray-700 mb-3 line-clamp-2">AI幻想风新作上线：机械森林</p>
+                    <div class="w-full h-36 object-cover rounded-lg mb-3 bg-orange-400"></div>
                     <div class="flex justify-between items-center text-gray-500 text-sm">
                         <span class="flex items-center"><span class="text-red-500 mr-1">❤️</span> 56</span>
                         <span class="flex items-center">💬 8</span>
@@ -201,26 +219,26 @@
 
         <!-- 粉丝评论区 -->
         <div class="mt-12 px-4 sm:px-8">
-            <h2 class="text-xl font-bold mb-4 text-gray-800">粉丝评论区</h2>
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">粉丝评论</h2>
             <div class="flex overflow-x-auto scroll-container pb-4 space-x-4">
                 <!-- 评论卡片 -->
                 <div class="flex-none w-64 bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <p class="font-semibold text-gray-800 mb-1">用户A</p>
-                    <p class="text-sm text-gray-700 mb-2">作品太酷了！</p>
+                    <p class="font-semibold text-gray-800 mb-1">小王同学</p>
+                    <p class="text-sm text-gray-700 mb-2">作品太酷了，尤其是配色，非常喜欢！</p>
                     <div class="text-yellow-400">
                         ⭐⭐⭐⭐⭐
                     </div>
                 </div>
                 <div class="flex-none w-64 bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <p class="font-semibold text-gray-800 mb-1">用户B</p>
-                    <p class="text-sm text-gray-700 mb-2">希望多出赛博朋克风格～</p>
+                    <p class="font-semibold text-gray-800 mb-1">艺术爱好者</p>
+                    <p class="text-sm text-gray-700 mb-2">希望能多出赛博朋克风格的作品～</p>
                     <div class="text-yellow-400">
                         ⭐⭐⭐⭐⭐
                     </div>
                 </div>
                 <div class="flex-none w-64 bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <p class="font-semibold text-gray-800 mb-1">用户C</p>
-                    <p class="text-sm text-gray-700 mb-2">很喜欢AI风格的鼠标垫！</p>
+                    <p class="font-semibold text-gray-800 mb-1">科技宅</p>
+                    <p class="text-sm text-gray-700 mb-2">很喜欢AI风格的鼠标垫，已经下单了！</p>
                     <div class="text-yellow-400">
                         ⭐⭐⭐⭐⭐
                     </div>
@@ -229,13 +247,14 @@
         </div>
 
         <!-- 页脚 -->
-        <div class="bg-gray-800 text-gray-300 text-center py-6 mt-12 rounded-b-3xl">
+        <div class="bg-gray-900 text-gray-300 text-center py-8 mt-12 rounded-b-3xl">
             <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-8">
                 <a href="#" class="hover:text-white transition-colors">关于我们</a>
                 <a href="#" class="hover:text-white transition-colors">创作者入驻</a>
                 <a href="#" class="hover:text-white transition-colors">联系方式</a>
                 <a href="#" class="hover:text-white transition-colors">帮助中心</a>
             </div>
+            <p class="mt-4 text-xs">© 2025 AI Artists Store. All rights reserved.</p>
         </div>
     </div>
 
@@ -245,11 +264,12 @@
             const carouselImage = document.getElementById('carousel-image');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
+            // 更新轮播图的图片为带有文字和更鲜艳的占位符
             const images = [
-                'https://placehold.co/500x500/3182ce/ffffff?text=商品+1',
-                'https://placehold.co/500x500/4299e1/ffffff?text=商品+2',
-                'https://placehold.co/500x500/38a169/ffffff?text=商品+3',
-                'https://placehold.co/500x500/805ad5/ffffff?text=商品+4'
+                'https://placehold.co/800x800/2563eb/ffffff?text=未来科技幻想',
+                'https://placehold.co/800x800/059669/ffffff?text=AI+艺术之美',
+                'https://placehold.co/800x800/c026d3/ffffff?text=奇妙幻想世界',
+                'https://placehold.co/800x800/f59e0b/ffffff?text=代码与像素'
             ];
             let currentIndex = 0;
 
@@ -269,24 +289,25 @@
             setInterval(nextImage, 3000);
 
             // JavaScript实现商品分类筛选和动态生成
+            // 更新商品的图片为带有文字和更鲜艳的占位符
             const products = [
-                { name: '未来风帆布包', price: '￥99', category: 'bag', image: 'https://placehold.co/400x400/3182ce/ffffff?text=未来风帆布包' },
-                { name: '赛博朋克鼠标垫', price: '￥69', category: 'mousepad', image: 'https://placehold.co/400x400/3182ce/ffffff?text=赛博朋克鼠标垫' },
-                { name: '星空系列海报', price: '￥129', category: 'poster', image: 'https://placehold.co/400x400/3182ce/ffffff?text=星空系列海报' },
-                { name: '像素城市杯子', price: '￥88', category: 'mug', image: 'https://placehold.co/400x400/3182ce/ffffff?text=像素城市杯子' },
-                { name: '创意插画帆布包', price: '￥79', category: 'bag', image: 'https://placehold.co/400x400/3182ce/ffffff?text=创意插画帆布包' },
-                { name: '几何图案鼠标垫', price: '￥199', category: 'mousepad', image: 'https://placehold.co/400x400/3182ce/ffffff?text=几何图案鼠标垫' },
-                { name: 'AI幻想风海报', price: '￥139', category: 'poster', image: 'https://placehold.co/400x400/3182ce/ffffff?text=AI幻想风海报' },
-                { name: '插画艺术马克杯', price: '￥109', category: 'mug', image: 'https://placehold.co/400x400/3182ce/ffffff?text=插画艺术马克杯' },
-                { name: '抽象线条帆布包', price: '￥129', category: 'bag', image: 'https://placehold.co/400x400/3182ce/ffffff?text=抽象线条帆布包' },
-                { name: '科幻风景鼠标垫', price: '￥59', category: 'mousepad', image: 'https://placehold.co/400x400/3182ce/ffffff?text=科幻风景鼠标垫' },
-                { name: '极简主义海报', price: '￥109', category: 'poster', image: 'https://placehold.co/400x400/3182ce/ffffff?text=极简主义海报' },
-                { name: '复古艺术杯子', price: '￥78', category: 'mug', image: 'https://placehold.co/400x400/3182ce/ffffff?text=复古艺术杯子' },
-                { name: 'AI少女帆布包', price: '￥149', category: 'bag', image: 'https://placehold.co/400x400/3182ce/ffffff?text=AI少女帆布包' },
-                { name: '科技感鼠标垫', price: '￥89', category: 'mousepad', image: 'https://placehold.co/400x400/3182ce/ffffff?text=科技感鼠标垫' },
-                { name: 'AI艺术抽象画', price: '￥119', category: 'poster', image: 'https://placehold.co/400x400/3182ce/ffffff?text=AI艺术抽象画' },
-                { name: '幻想风抱枕', price: '￥98', category: 'pillow', image: 'https://placehold.co/400x400/3182ce/ffffff?text=幻想风抱枕' },
-                { name: '机械风抱枕', price: '￥108', category: 'pillow', image: 'https://placehold.co/400x400/3182ce/ffffff?text=机械风抱枕' },
+                { name: '未来风帆布包', price: '￥99', category: 'bag', image: 'https://placehold.co/600x600/38a169/ffffff?text=帆布包' },
+                { name: '赛博朋克鼠标垫', price: '￥69', category: 'mousepad', image: 'https://placehold.co/600x600/eab308/ffffff?text=鼠标垫' },
+                { name: '星空系列海报', price: '￥129', category: 'poster', image: 'https://placehold.co/600x600/2563eb/ffffff?text=海报' },
+                { name: '像素城市杯子', price: '￥88', category: 'mug', image: 'https://placehold.co/600x600/be185d/ffffff?text=马克杯' },
+                { name: '创意插画帆布包', price: '￥79', category: 'bag', image: 'https://placehold.co/600x600/10b981/ffffff?text=插画帆布包' },
+                { name: '几何图案鼠标垫', price: '￥199', category: 'mousepad', image: 'https://placehold.co/600x600/8b5cf6/ffffff?text=几何图案' },
+                { name: 'AI幻想风海报', price: '￥139', category: 'poster', image: 'https://placehold.co/600x600/f43f5e/ffffff?text=幻想海报' },
+                { name: '插画艺术马克杯', price: '￥109', category: 'mug', image: 'https://placehold.co/600x600/f97316/ffffff?text=艺术杯' },
+                { name: '抽象线条帆布包', price: '￥129', category: 'bag', image: 'https://placehold.co/600x600/06b6d4/ffffff?text=抽象艺术包' },
+                { name: '科幻风景鼠标垫', price: '￥59', category: 'mousepad', image: 'https://placehold.co/600x600/a16207/ffffff?text=科幻鼠标垫' },
+                { name: '极简主义海报', price: '￥109', category: 'poster', image: 'https://placehold.co/600x600/94a3b8/ffffff?text=极简主义' },
+                { name: '复古艺术杯子', price: '￥78', category: 'mug', image: 'https://placehold.co/600x600/7c3aed/ffffff?text=复古杯' },
+                { name: 'AI少女帆布包', price: '￥149', category: 'bag', image: 'https://placehold.co/600x600/c084fc/ffffff?text=AI少女' },
+                { name: '科技感鼠标垫', price: '￥89', category: 'mousepad', image: 'https://placehold.co/600x600/f59e0b/ffffff?text=科技感' },
+                { name: 'AI艺术抽象画', price: '￥119', category: 'poster', image: 'https://placehold.co/600x600/ec4899/ffffff?text=抽象画' },
+                { name: '幻想风抱枕', price: '￥98', category: 'pillow', image: 'https://placehold.co/600x600/4ade80/ffffff?text=幻想风抱枕' },
+                { name: '机械风抱枕', price: '￥108', category: 'pillow', image: 'https://placehold.co/600x600/3b82f6/ffffff?text=机械风抱枕' },
             ];
 
             const productList = document.getElementById('product-list');
@@ -300,8 +321,8 @@
                 let productHtml = '';
                 filteredProducts.forEach(product => {
                     productHtml += `
-                        <div class="product-card rounded-xl overflow-hidden cursor-pointer">
-                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                        <div class="product-card rounded-xl overflow-hidden cursor-pointer group">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
                             <div class="p-4 text-center">
                                 <h3 class="font-medium text-gray-800 transition-colors group-hover:text-blue-600">${product.name}</h3>
                                 <p class="text-blue-600 font-bold mt-1">${product.price}</p>
@@ -323,17 +344,18 @@
 
                     // 更新按钮的选中状态
                     categoryButtons.forEach(btn => {
-                        btn.classList.remove('selected-btn', 'text-white');
-                        btn.classList.add('bg-gray-100', 'text-gray-800');
+                        btn.classList.remove('selected-btn', 'text-white', 'hover:bg-blue-600', 'hover:text-white');
+                        btn.classList.add('bg-gray-100', 'text-gray-800', 'hover:bg-blue-600', 'hover:text-white');
                     });
                     button.classList.add('selected-btn');
+                    button.classList.remove('bg-gray-100', 'text-gray-800');
                 });
             });
 
             // 初始加载时渲染所有商品
             renderProducts('all');
             document.querySelector('[data-category="all"]').classList.add('selected-btn');
-            document.querySelector('[data-category="all"]').classList.remove('bg-gray-100');
+            document.querySelector('[data-category="all"]').classList.remove('bg-gray-100', 'text-gray-800');
 
 
             // 动态分页功能（未实现，仅为结构占位）
