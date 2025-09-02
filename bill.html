@@ -78,6 +78,19 @@
                     预计到账： <span class="font-medium text-gray-800">T+7 工作日</span>
                 </div>
 
+                <!-- Security Verification Module -->
+                <div class="bg-gray-50 rounded-lg p-4 space-y-2 text-sm text-gray-600">
+                    <h3 class="font-bold text-gray-800">安全验证</h3>
+                    <p>为了保障您的账户安全，请完成身份验证：</p>
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
+                        <button id="get-code-btn" class="bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200">
+                            获取验证码
+                        </button>
+                        <input type="text" id="verification-code-input" placeholder="输入验证码" class="flex-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div id="code-status" class="text-xs text-gray-500 mt-2">（验证码已发送至您的邮箱 alice***@gmail.com）</div>
+                </div>
+
                 <div class="space-y-2 text-sm text-gray-600 pt-4">
                     <div class="flex items-center">
                         <input type="checkbox" id="agreement1" class="h-4 w-4 text-green-600 rounded border-gray-300 focus:ring-green-500">
@@ -133,6 +146,9 @@
             const modal = document.getElementById('confirmation-modal');
             const confirmBtn = document.getElementById('confirm-btn');
             const cancelBtn = document.getElementById('cancel-btn');
+            const getCodeBtn = document.getElementById('get-code-btn');
+            const verificationCodeInput = document.getElementById('verification-code-input');
+            const codeStatusEl = document.getElementById('code-status');
             
             // Initial data state
             let orders = [
@@ -201,6 +217,33 @@
                 }
             });
 
+            // "Get Verification Code" button logic
+            let countdown = 60;
+            let timerId = null;
+
+            getCodeBtn.addEventListener('click', () => {
+                if (timerId) return; // Prevent multiple timers
+
+                // Start countdown
+                getCodeBtn.disabled = true;
+                getCodeBtn.textContent = `重新获取(${countdown}s)`;
+                codeStatusEl.textContent = '验证码已发送至您的邮箱 alice***@gmail.com';
+
+                timerId = setInterval(() => {
+                    countdown--;
+                    if (countdown > 0) {
+                        getCodeBtn.textContent = `重新获取(${countdown}s)`;
+                    } else {
+                        clearInterval(timerId);
+                        timerId = null;
+                        countdown = 60;
+                        getCodeBtn.textContent = '获取验证码';
+                        getCodeBtn.disabled = false;
+                        codeStatusEl.textContent = '验证码有效期：5分钟';
+                    }
+                }, 1000);
+            });
+
             // "Withdraw All" button logic
             withdrawBtn.addEventListener('click', () => {
                 if (!agreement1.checked || !agreement2.checked || !agreement3.checked) {
@@ -208,7 +251,12 @@
                     document.getElementById('modal-message').textContent = '请先勾选所有同意条款。';
                     modal.classList.remove('hidden');
                     confirmBtn.classList.add('hidden');
+                } else if (verificationCodeInput.value.trim() === '') {
+                    document.getElementById('modal-message').textContent = '请输入验证码。';
+                    modal.classList.remove('hidden');
+                    confirmBtn.classList.add('hidden');
                 } else {
+                    // All conditions met, show confirmation
                     document.getElementById('modal-message').textContent = '您确定要申请提现吗？';
                     modal.classList.remove('hidden');
                     confirmBtn.classList.remove('hidden');
