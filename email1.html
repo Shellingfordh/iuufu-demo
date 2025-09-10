@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUUFU - Wear the Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .section-divider {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        /* Pulse animation for the "How it Works" section */
+        @keyframes pulse-flow {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        .animate-pulse-flow div {
+            animation: pulse-flow 2s infinite ease-in-out;
+        }
+        .animate-pulse-flow div:nth-child(1) { animation-delay: 0s; }
+        .animate-pulse-flow div:nth-child(3) { animation-delay: 0.5s; }
+        .animate-pulse-flow div:nth-child(5) { animation-delay: 1s; }
+        .animate-pulse-flow div:nth-child(7) { animation-delay: 1.5s; }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-6">
+    <div class="container mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+        <!-- Main Logo Section -->
+        <header class="p-8 text-center bg-gray-900 text-white rounded-t-3xl">
+            <h1 class="text-5xl font-extrabold tracking-tight">iuufu</h1>
+        </header>
+
+        <!-- Featured Creations Section with GIF/Video -->
+        <section class="p-6">
+            <h2 class="text-xl font-bold text-center mb-4 text-gray-800">Featured Creations</h2>
+            <a href="#products" class="block group relative rounded-2xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105">
+                <!-- Use a GIF or short video for email marketing -->
+                <img src="https://media.giphy.com/media/l4Epf2R5M5N8rB7eM/giphy.gif" alt="Animated GIF of AI-generated art transforming" class="w-full h-auto">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 text-white transition-opacity duration-300 group-hover:bg-opacity-60">
+                    <h3 class="text-2xl font-bold mb-2">Latest AI Design Spotlight</h3>
+                    <p class="text-sm">Explore the collection of new visual masterpieces.</p>
+                </div>
+                <div class="absolute top-4 right-4 bg-white text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow">NEW</div>
+            </a>
+        </section>
+
+        <!-- Product Highlights Section -->
+        <section class="px-6 py-4 section-divider" id="products">
+            <h2 class="text-xl font-bold text-center mb-4 text-gray-800">Product Highlights</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <a href="#" class="block text-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/200x200/525252/fff?text=AI+Art+Tees" alt="AI Art Tees" class="w-full h-auto rounded-xl mb-2">
+                    <span class="font-medium text-sm">AI Art Tees</span>
+                </a>
+                <a href="#" class="block text-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/200x200/4ade80/fff?text=Canvas+Prints" alt="Canvas Prints" class="w-full h-auto rounded-xl mb-2">
+                    <span class="font-medium text-sm">Canvas Prints</span>
+                </a>
+                <a href="#" class="block text-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/200x200/2563eb/fff?text=Posters" alt="Posters" class="w-full h-auto rounded-xl mb-2">
+                    <span class="font-medium text-sm">Posters</span>
+                </a>
+                <a href="#" class="block text-center p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/200x200/ef4444/fff?text=Mugs" alt="Mugs & Accessories" class="w-full h-auto rounded-xl mb-2">
+                    <span class="font-medium text-sm">Mugs & Accessories</span>
+                </a>
+            </div>
+            <p class="text-xs text-center text-gray-500 mt-4">→ Click to view individual product pages</p>
+        </section>
+
+        <!-- Creator Community Section -->
+        <section class="p-6 section-divider bg-gray-50">
+            <h2 class="text-xl font-bold text-center mb-4 text-gray-800">Creator Community</h2>
+            <div class="bg-white rounded-xl p-6 space-y-4 shadow-sm">
+                <div class="text-center">
+                    <a href="#" class="inline-block px-8 py-4 bg-gray-900 text-white font-bold rounded-full shadow-lg hover:bg-gray-700 transition-colors duration-300 transform hover:scale-105">
+                        Become a Creator
+                    </a>
+                    <p class="text-sm text-gray-600 mt-2">Showcase Your AI Art & Monetize</p>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold">
+                        Discover Trending Works
+                    </a>
+                    <p class="text-sm text-gray-600 mt-1">Explore our vibrant creator community</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section with simple animation -->
+        <section class="p-6 section-divider">
+            <h2 class="text-xl font-bold text-center mb-6 text-gray-800">How It Works</h2>
+            <div class="flex items-center justify-around text-center space-x-2 animate-pulse-flow">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full mb-1">💡</div>
+                    <span class="text-xs font-semibold">Inspiration</span>
+                </div>
+                <div class="text-gray-400 text-2xl animate-flow-arrow">→</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full mb-1">🤖</div>
+                    <span class="text-xs font-semibold">AI Creation</span>
+                </div>
+                <div class="text-gray-400 text-2xl animate-flow-arrow" style="animation-delay: 0.5s;">→</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full mb-1">👕</div>
+                    <span class="text-xs font-semibold">Product</span>
+                </div>
+                <div class="text-gray-400 text-2xl animate-flow-arrow" style="animation-delay: 1s;">→</div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full mb-1">📦</div>
+                    <span class="text-xs font-semibold">Consumer</span>
+                </div>
+            </div>
+            <ul class="mt-6 space-y-2 text-gray-600 list-disc list-inside">
+                <li>Fast & Unique Designs</li>
+                <li>Low-Cost Creation Tools</li>
+                <li>Seamless Marketplace Experience</li>
+            </ul>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="p-6 text-center section-divider">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Call to Action</h2>
+            <div class="space-y-4">
+                <a href="#" class="block w-full px-6 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-500 transition-colors duration-300">
+                    Join IUUFU Today
+                </a>
+                <a href="#products" class="block w-full px-6 py-4 border border-gray-300 text-gray-800 font-bold rounded-full shadow-lg hover:bg-gray-100 transition-colors duration-300">
+                    Explore Marketplace
+                </a>
+            </div>
+        </section>
+
+        <!-- Tagline Section -->
+        <section class="p-6 text-center bg-gray-50 rounded-b-3xl">
+            <div class="space-y-2 text-gray-500 italic">
+                <p>"Wear the Future. Art by AI. Worn by You."</p>
+                <p>"From Pixels to Products. From Imagination to Reality."</p>
+                <p>"Life is more than mainstream — create your future."</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="p-6 text-center bg-gray-900 text-white rounded-b-3xl">
+            <div class="flex justify-center items-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Website</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Pinterest</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Threads</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Email</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
