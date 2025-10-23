@@ -35,8 +35,9 @@
             Vincent's Light: An Exploration of Color and Emotion
         </h1>
 
-        <!-- Featured Image 1200x630px -->
-        <div class="mb-12 rounded-xl overflow-hidden shadow-xl">
+        <!-- Featured Image 1200x630px (Visually optimized for mobile) -->
+        <!-- 核心修改：添加 max-h-80 (手机) 和 sm:max-h-96 (平板/桌面) 来限制图片在屏幕上的实际高度，同时利用 overflow-hidden 进行裁剪。 -->
+        <div class="mb-12 rounded-xl overflow-hidden shadow-xl max-h-80 sm:max-h-96">
             <!-- Placeholder for the featured image -->
             <img 
                 src="https://placehold.co/1200x630/6366F1/ffffff?text=Featured+Image%3A+Van+Gogh+Themed+Mockups" 
@@ -164,7 +165,7 @@
                     <!-- Shopping Bag Icon SVG -->
                     <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 6h-3c0-2.21-1.79-4-4-4S7 3.79 7 6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 6c0-1.1.9-2 2-2s2 .9 2 2H9zm9 14H4V8h3v2h2V8h6v2h2V8h3v12z"/></svg>
                     <div class="text-left">
-                        <span class="text-xs font-light block">Available on</span>
+                        <span class="text-xs font-light block">Available on the</span>
                         <span class="text-xl font-bold">Galaxy Store</span>
                     </div>
                 </a>
