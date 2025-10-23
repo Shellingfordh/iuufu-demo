@@ -11,6 +11,8 @@
         body {
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
             background-color: #f7f7f7;
+            /* Remove padding from body to allow full-bleed image */
+            padding: 0;
         }
         /* Custom styles for 3:4 aspect ratio */
         .aspect-3-4 {
@@ -25,29 +27,59 @@
         }
     </style>
 </head>
-<body class="p-4 sm:p-8">
+<body class="p-0 sm:p-0">
 
-    <!-- Main Container: Max width 1280px, centered -->
-    <div class="max-w-7xl mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-2xl">
-
-        <!-- H1 Title (Van Gogh Theme) -->
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-8 text-center border-b-4 border-indigo-500 pb-4">
-            Vincent's Light: An Exploration of Color and Emotion
-        </h1>
-
-        <!-- Featured Image 1200x630px (Visually optimized for mobile) -->
-        <!-- 核心修改：添加 max-h-80 (手机) 和 sm:max-h-96 (平板/桌面) 来限制图片在屏幕上的实际高度，同时利用 overflow-hidden 进行裁剪。 -->
-        <div class="mb-12 rounded-xl overflow-hidden shadow-xl max-h-80 sm:max-h-96">
-            <!-- Placeholder for the featured image -->
-            <img 
-                src="https://placehold.co/1200x630/6366F1/ffffff?text=Featured+Image%3A+Van+Gogh+Themed+Mockups" 
-                alt="Featured wallpaper display on three phone mockups" 
-                class="w-full h-auto object-cover"
-                onerror="this.onerror=null; this.src='https://placehold.co/1200x630/6366F1/ffffff?text=Image+Load+Failed';"
-            >
+    <!-- FULL-BLEED FEATURED IMAGE HEADER (Shopify Blog Style) -->
+    <header class="relative w-full h-[500px] sm:h-[600px] overflow-hidden">
+        <!-- Background Image (1200x630 OG Ratio is maintained by object-cover, but visual height is fixed) -->
+        <img 
+            src="https://placehold.co/1200x630/6366F1/ffffff?text=Van+Gogh+Featured+Art+Header" 
+            alt="Featured art image for blog post header" 
+            class="absolute inset-0 w-full h-full object-cover"
+            onerror="this.onerror=null; this.src='https://placehold.co/1200x630/6366F1/ffffff?text=Image+Load+Failed';"
+        >
+        
+        <!-- Gradient Overlay for Text Readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+        
+        <!-- Content Overlay (Title, Text, Metadata) -->
+        <div class="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-end p-6 sm:p-10 text-white">
+            
+            <!-- Metadata (Simplified) -->
+            <div class="text-sm opacity-90 mb-6 flex justify-between items-center max-w-4xl mx-auto w-full">
+                 <span class="font-semibold">By ART LOVER</span> 
+                 <span class="text-xs">SEP 25, 2025 | INSPIRATION MAGS</span>
+            </div>
+            
+            <!-- H1 Title -->
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-center max-w-4xl mx-auto mb-6 leading-tight">
+                Vincent's Light: An Exploration of Color and Emotion
+            </h1>
+            
+            <!-- Summary Text (Using snippet of original prose) -->
+            <p class="text-lg text-center max-w-3xl mx-auto leading-relaxed opacity-95 mb-10">
+                Vincent van Gogh’s love affair with yellow was not merely a choice of pigment but an expression of his emotional intensity and hope under the fierce Provençal sun.
+            </p>
         </div>
+    </header>
 
-        <!-- Article Content Area (Prose - Van Gogh) -->
+    <!-- Main Content Container (Limited Width, White Card) -->
+    <!-- The negative margin pulls the white card up to overlap the header slightly -->
+    <div class="max-w-7xl mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-2xl mt-[-40px] relative z-20">
+
+        <!-- Share Widget Placeholder (as seen in the reference image) -->
+        <div class="flex items-center text-gray-500 text-sm mb-10 border-b pb-4">
+            <span class="font-semibold mr-4">Share:</span>
+            <div class="flex space-x-3">
+                <!-- Placeholder Icons (X, Pinterest, Facebook, Link) -->
+                <a href="#share-x" class="hover:text-black transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.9 3.3c-0.7 0.3-1.4 0.5-2.2 0.6 0.8-0.5 1.4-1.2 1.7-2.1 -0.8 0.5-1.7 0.8-2.6 1 -0.7-0.7-1.7-1.2-2.8-1.2 -2.1 0-3.8 1.7-3.8 3.8 0 0.3 0 0.6 0.1 0.9 -3.2-0.2-6-1.7-7.9-4 -0.3 0.5-0.5 1-0.5 1.7 0 1.3 0.7 2.4 1.7 3.1 -0.6 0-1.3-0.2-1.8-0.5 0 0 0 0 0 0 0 1.8 1.2 3.3 2.8 3.6 -0.3 0.1-0.6 0.1-0.9 0.1 -0.2 0-0.4 0-0.6-0.1 0.4 1.4 1.8 2.5 3.4 2.5 -1.2 1-2.7 1.6-4.3 1.6 -0.3 0-0.6 0-0.9-0.1 1.5 1 3.2 1.6 5 1.6 6 0 9.3-5 9.3-9.3 0-0.1 0-0.3 0-0.4 0.6-0.5 1.2-1.2 1.6-2z"/></svg></a>
+                <a href="#share-pin" class="hover:text-black transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-2.48 0-4.5-2.02-4.5-4.5 0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 2.48-2.02 4.5-4.5 4.5zm-1.8-11.83c-0.14-0.18-0.4-0.2-0.6-.04 -0.21 0.16-0.28 0.45-0.15 0.7l0.6 1.15c-0.5 0.1-1 0.35-1.4 0.75 -0.66 0.66-0.96 1.6-0.7 2.55 0.13 0.49 0.4 0.9 0.7 1.25 0.66 0.66 1.6 0.96 2.55 0.7 0.49-0.13 0.9-0.4 1.25-0.7 0.66-0.66 0.96-1.6 0.7-2.55 -0.13-0.49-0.4-0.9-0.7-1.25l-0.6-1.15zM12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8z"/></svg></a>
+                <a href="#share-fb" class="hover:text-black transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3h-3c-1.1 0-2 0.9-2 2v2h3l-1 3h-2v11h-4V10H8v-3h2V5c0-2.2 1.8-4 4-4h3V3z"/></svg></a>
+                <a href="#share-link" class="hover:text-black transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7h-4V3h-4v4H7c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 12H7V9h10v10zM10 11H8v2h2v-2zM10 15H8v2h2v-2zM14 11h-2v2h2v-2zM14 15h-2v2h2v-2z"/></svg></a>
+            </div>
+        </div>
+        
+        <!-- Article Content Starts Here -->
         <div class="space-y-10">
 
             <!-- Subheading H2 and Prose 1: The Audacity of Yellow -->
@@ -56,7 +88,7 @@
                     The Audacity of Yellow: Sunflowers and Arles
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-lg">
-                    Vincent van Gogh’s love affair with yellow was not merely a choice of pigment but an expression of his emotional intensity and hope under the fierce Provençal sun. In Arles, he chased the light with a feverish dedication, immortalizing sunflowers not as still life subjects, but as fiery symbols of life, gratitude, and the overwhelming brilliance of the French summer. Each petal and stalk, thick with impasto, vibrates with energy, pulling the viewer into a vortex of color that challenges the very notion of observation. It is in this yellow that we find the purest, if most tormented, joy of his creative spirit.
+                    In Arles, Van Gogh chased the light with a feverish dedication, immortalizing sunflowers not as still life subjects, but as fiery symbols of life, gratitude, and the overwhelming brilliance of the French summer. Each petal and stalk, thick with impasto, vibrates with energy, pulling the viewer into a vortex of color that challenges the very notion of observation. It is in this yellow that we find the purest, if most tormented, joy of his creative spirit.
                 </p>
             </div>
 
