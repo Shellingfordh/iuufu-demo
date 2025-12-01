@@ -20,10 +20,10 @@
         Hidden test fields:  
         <a style="">lowercase visible</a>
         <A>UPPERCASE visible</A>
-        <b style="display:none;">lowercase hidden</b>
+        <b>lowercase hidden</b>
         <B style="display:none;">UPPERCASE hidden</B>
         <c style="display:none;">lowercase hidden 2</c>
-        <C style="display:none;">UPPERCASE hidden 2</C>
+        <C>UPPERCASE hidden 2</C>
       ]]></description>
       
       <!-- canonical -->
