@@ -1,87 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
-     xmlns:media="http://search.yahoo.com/mrss/">
-  <channel>
-    
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
     <title>Automated Product Feed</title>
     <link>https://example.com</link>
-    <description>Shopify-style optimized feed for Pinterest automation</description>
+    <description>Optimized dynamic feed for automation platforms</description>
 
-    
     <!-- ================= ITEM #1 ================= -->
-
     <item>
-      <title>A Test Product Example Case</title>
-      <link>https://example.com/product/a-test</link>
-      <guid isPermaLink="true">https://example.com/product/a-test</guid>
-      <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
+        <title>A Test Product Example Case</title>
+        <link>https://example.com/product/a-test</link>
+        <guid isPermaLink="true">https://example.com/product/a-test</guid>
+        <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
-      <description><![CDATA[
-      {
-        "ratio": "9:16",
-        "resolution": "8K",
-        "size": "10MB",
+        <!-- Canonical reference -->
+        <atom:link rel="canonical" href="https://example.com/product/a-test" />
 
-        "attributes": {
-          "visible": [
-            { "label": "Lowercase", "value": "a" },
-            { "label": "Uppercase", "value": "A" },
-            { "label": "Lowercase B", "value": "b"},
-            { "label": "Uppercase C", "value": "C"}
-          ],
+        <!-- Core Metadata as independent fields -->
+        <ratio>9:16</ratio>
+        <resolution>8K</resolution>
+        <size>10MB</size>
 
-          "hidden": [
-            { "label": "Lowercase B", "value": "b", "display": "none" },
-            { "label": "Uppercase B", "value": "B", "display": "none" },
-            { "label": "Lowercase C", "value": "c", "display": "none" }
-          ]
-        }
-      }
-      ]]></description>
+        <!-- Field experiment group: all independent -->
+        <a>a lowercase</a>
+        <A>A UPPERCASE</A>
+        <b>b lowercase hidden test</b>
+        <B>B UPPERCASE hidden test</B>
+        <c>c lowercase alt experiment</c>
+        <C>C UPPERCASE alt experiment</C>
 
-      <media:content
-        url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png?source=1d2f5c51"
-        medium="image"
-      />
+        <!-- Human readable description for Pinterest/Threads -->
+        <description><![CDATA[
+Product Experiment: A Test Product Example Case
+
+Specs:
+- Ratio: 9:16
+- Resolution: 8K
+- File Size: 10MB
+
+Fields Included:
+a , A , b , B , c , C
+
+Canonical: https://example.com/product/a-test
+        ]]></description>
+
+        <media:content
+            url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png?source=1d2f5c51"
+            medium="image" />
+
     </item>
 
 
     <!-- ================= ITEM #2 ================= -->
-
     <item>
-      <title>B Experimental Lowercasing</title>
-      <link>https://example.com/product/b-test</link>
-      <guid isPermaLink="true">https://example.com/product/b-test</guid>
-      <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
+        <title>B Experimental Lowercasing</title>
+        <link>https://example.com/product/b-test</link>
+        <guid isPermaLink="true">https://example.com/product/b-test</guid>
+        <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
-      <description><![CDATA[
-      {
-        "ratio": "3:4",
-        "resolution": "4K",
-        "size": "5MB",
+        <atom:link rel="canonical" href="https://example.com/product/b-test" />
 
-        "attributes": {
-          "visible": [
-            { "label": "Lowercase", "value": "a" },
-            { "label": "Uppercase", "value": "A" },
-            { "label": "Lowercase B", "value": "b"},
-            { "label": "Uppercase C", "value": "C"}
-          ],
+        <!-- Metadata -->
+        <ratio>3:4</ratio>
+        <resolution>4K</resolution>
+        <size>5MB</size>
 
-          "hidden": [
-            { "label": "Lowercase B", "value": "b", "display": "none" },
-            { "label": "Uppercase B", "value": "B", "display": "none" },
-            { "label": "Lowercase C", "value": "c", "display": "none" }
-          ]
-        }
-      }
-      ]]></description>
+        <!-- Independent test fields -->
+        <a>a lowercase</a>
+        <A>A UPPERCASE</A>
+        <b>b lowercase hidden test</b>
+        <B>B UPPERCASE hidden test</B>
+        <c>c lowercase alt experiment</c>
+        <C>C UPPERCASE alt experiment</C>
 
-      <media:content
-        url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png?source=1d2f5c51"
-        medium="image"
-      />
+        <description><![CDATA[
+Product Experiment: B Experimental Lowercasing
+
+Specs:
+- Ratio: 3:4
+- Resolution: 4K
+- File Size: 5MB
+
+Fields Included: 
+a , A , b , B , c , C
+
+Canonical: https://example.com/product/b-test
+        ]]></description>
+
+        <media:content
+            url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png?source=1d2f5c51"
+            medium="image" />
+
     </item>
 
-  </channel>
+</channel>
 </rss>
