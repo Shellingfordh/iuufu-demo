@@ -5,69 +5,58 @@
   <channel>
     <title>Test Feed for Automation</title>
     <link>https://example.com</link>
-    <description>Testing automation with different fields.</description>
-    
-    <!-- ========== ITEM 1 ========== -->
+    <description>Testing automation with standard Pinterest/Nuelink format</description>
+
     <item>
       <title>A Test Product Example Case</title>
       <link>https://example.com/product/a-test</link>
-      <guid>https://example.com/product/a-test</guid>
+      <guid isPermaLink="true">https://example.com/product/a-test</guid>
+      <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
+
       <description><![CDATA[
-        Ratio: 16:9  
-        Resolution: 8K  
-        Size: 10MB  
+{
+  "ratio": "16:9",
+  "resolution": "8K",
+  "size": "10MB",
+  "visible_lowercase": "a",
+  "visible_uppercase": "A",
+  "hidden_lowercase": "b",
+  "hidden_uppercase": "B",
+  "hidden_lowercase_2": "c",
+  "hidden_uppercase_2": "C"
+}
+]]></description>
 
-        Hidden test fields:  
-        <a style="">lowercase visible</a>
-        <A>UPPERCASE visible</A>
-        <b>lowercase hidden</b>
-        <B style="display:none;">UPPERCASE hidden</B>
-        <c style="display:none;">lowercase hidden 2</c>
-        <C>UPPERCASE hidden 2</C>
-      ]]></description>
-      
-      <!-- canonical -->
-      <meta>
-        <link rel="canonical" href="https://example.com/product/a-test" />
-      </meta>
-
-      <!-- custom dynamic meta fields -->
       <media:content 
         url="https://example.com/images/a-test.jpg"
         medium="image"
       />
-
     </item>
 
-    <!-- ========== ITEM 2 ========== -->
     <item>
-      <title>b Experimental Lowercasing</title>
+      <title>B Experimental Lowercasing</title>
       <link>https://example.com/product/b-test</link>
-      <guid>https://example.com/product/b-test</guid>
+      <guid isPermaLink="true">https://example.com/product/b-test</guid>
+      <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
       <description><![CDATA[
-        Ratio: 9:16  
-        Resolution: 4K  
-        Size: 5MB 
-
-        Field Experiments:
-        <a>case-test-1</a>
-        <A>CASE-TEST-1</A>
-        <b style="display:none;">hidden lowercase</b>
-        <B style="display:none;">HIDDEN UPPERCASE</B>
-        <c style="display:none;">third hidden style lowercase</c>
-        <C style="display:none;">third hidden uppercase</C>
-      ]]></description>
-      
-      <meta>
-        <link rel="canonical" href="https://example.com/product/b-test" />
-      </meta>
+{
+  "ratio": "9:16",
+  "resolution": "4K",
+  "size": "5MB",
+  "visible_lowercase": "a",
+  "visible_uppercase": "A",
+  "hidden_lowercase": "b",
+  "hidden_uppercase": "B",
+  "hidden_lowercase_2": "c",
+  "hidden_uppercase_2": "C"
+}
+]]></description>
 
       <media:content 
         url="https://example.com/images/b-test.jpg"
         medium="image"
       />
-
     </item>
 
   </channel>
