@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
-    xmlns:media="http://search.yahoo.com/mrss/"
->
+     xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Test Feed for Automation</title>
+    
+    <title>Automated Product Feed</title>
     <link>https://example.com</link>
-    <description>Testing automation with standard Pinterest/Nuelink format</description>
+    <description>Shopify-style optimized feed for Pinterest automation</description>
+
+    
+    <!-- ================= ITEM #1 ================= -->
 
     <item>
       <title>A Test Product Example Case</title>
@@ -14,24 +17,36 @@
       <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
       <description><![CDATA[
-{
-  "ratio": "16:9",
-  "resolution": "8K",
-  "size": "10MB",
-  "visible_lowercase": "a",
-  "visible_uppercase": "A",
-  "hidden_lowercase": "b",
-  "hidden_uppercase": "B",
-  "hidden_lowercase_2": "c",
-  "hidden_uppercase_2": "C"
-}
-]]></description>
+      {
+        "ratio": "9:16",
+        "resolution": "8K",
+        "size": "10MB",
 
-      <media:content 
+        "attributes": {
+          "visible": [
+            { "label": "Lowercase", "value": "a" },
+            { "label": "Uppercase", "value": "A" },
+            { "label": "Lowercase B", "value": "b"},
+            { "label": "Uppercase C", "value": "C"}
+          ],
+
+          "hidden": [
+            { "label": "Lowercase B", "value": "b", "display": "none" },
+            { "label": "Uppercase B", "value": "B", "display": "none" },
+            { "label": "Lowercase C", "value": "c", "display": "none" }
+          ]
+        }
+      }
+      ]]></description>
+
+      <media:content
         url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png?source=1d2f5c51"
         medium="image"
       />
     </item>
+
+
+    <!-- ================= ITEM #2 ================= -->
 
     <item>
       <title>B Experimental Lowercasing</title>
@@ -40,20 +55,29 @@
       <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
       <description><![CDATA[
-{
-  "ratio": "9:16",
-  "resolution": "4K",
-  "size": "5MB",
-  "visible_lowercase": "a",
-  "visible_uppercase": "A",
-  "hidden_lowercase": "b",
-  "hidden_uppercase": "B",
-  "hidden_lowercase_2": "c",
-  "hidden_uppercase_2": "C"
-}
-]]></description>
+      {
+        "ratio": "3:4",
+        "resolution": "4K",
+        "size": "5MB",
 
-      <media:content 
+        "attributes": {
+          "visible": [
+            { "label": "Lowercase", "value": "a" },
+            { "label": "Uppercase", "value": "A" },
+            { "label": "Lowercase B", "value": "b"},
+            { "label": "Uppercase C", "value": "C"}
+          ],
+
+          "hidden": [
+            { "label": "Lowercase B", "value": "b", "display": "none" },
+            { "label": "Uppercase B", "value": "B", "display": "none" },
+            { "label": "Lowercase C", "value": "c", "display": "none" }
+          ]
+        }
+      }
+      ]]></description>
+
+      <media:content
         url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png?source=1d2f5c51"
         medium="image"
       />
