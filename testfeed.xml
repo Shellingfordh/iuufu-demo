@@ -28,7 +28,7 @@
 ]]></description>
 
       <media:content 
-        url="https://example.com/images/a-test.jpg"
+        url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png?source=1d2f5c51"
         medium="image"
       />
     </item>
@@ -54,7 +54,7 @@
 ]]></description>
 
       <media:content 
-        url="https://example.com/images/b-test.jpg"
+        url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png?source=1d2f5c51"
         medium="image"
       />
     </item>
