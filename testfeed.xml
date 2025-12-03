@@ -2,104 +2,65 @@
 <rss version="2.0"
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:atom="http://www.w3.org/2005/Atom">
+
 <channel>
+    <title>Automated Product Feed</title>
+    <link>https://example.com</link>
+    <description>Clean RSS for automation multi-image testing</description>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
 
-<title>Automated Product Feed</title>
-<link>https://example.com</link>
-<description>Multi-format feed testing for multi-image RSS compatibility</description>
+
+    <!-- ================= ITEM #1 (media:group) ================= -->
+    <item>
+        <title>Test Product - Group Method</title>
+        <link>https://example.com/a-test</link>
+        <guid isPermaLink="true">https://example.com/a-test</guid>
+        <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
+
+        <description><![CDATA[
+            Multi-image test using media:group standard.
+        ]]></description>
+
+        <media:group>
+            <media:content url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png" medium="image"/>
+            <media:content url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png" medium="image"/>
+        </media:group>
+    </item>
 
 
-<!-- ================= ITEM #1 (media:group) ================= -->
-<item>
-    <title>Test Product - media:group</title>
-    <link>https://example.com/a-test</link>
-    <guid isPermaLink="true">https://example.com/a-test</guid>
-    <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
-    <media:group>
+    <!-- ================= ITEM #2 (stacked media:content) ================= -->
+    <item>
+        <title>Test Product - Stacked Method</title>
+        <link>https://example.com/stacked</link>
+        <guid isPermaLink="true">https://example.com/stacked</guid>
+        <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
+
+        <description><![CDATA[
+            Second multi-image test using multiple <media:content> lines.
+        ]]></description>
+
         <media:content url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png" medium="image"/>
         <media:content url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png" medium="image"/>
-    </media:group>
-</item>
+    </item>
 
 
 
-<!-- ================= ITEM #2 (multiple media:content) ================= -->
-<item>
-    <title>Test Product - stacked media:content</title>
-    <link>https://example.com/product/stacked</link>
-    <guid isPermaLink="true">https://example.com/stacked</guid>
+    <!-- ================= ITEM #3 (HTML fallback) ================= -->
+    <item>
+        <title>Test Product - HTML Images</title>
+        <link>https://example.com/html-test</link>
+        <guid isPermaLink="true">https://example.com/html-test</guid>
+        <pubDate>Mon, 01 Dec 2025 07:15:28 +0000</pubDate>
 
-    <media:content url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png" medium="image"/>
-    <media:content url="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png" medium="image"/>
+        <description><![CDATA[
+            HTML image fallback test.<br><br>
+            <img src="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png"/><br>
+            <img src="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png"/>
+        ]]></description>
 
-    <description><![CDATA[
-        Testing parser that only grabs <media:content> entries.
-    ]]></description>
-</item>
-
-
-
-<!-- ================= ITEM #3 (HTML <img> block) ================= -->
-<item>
-    <title>Test Product - HTML body images</title>
-    <link>https://example.com/html-images</link>
-    <guid isPermaLink="true">https://example.com/html-images</guid>
-
-    <description><![CDATA[
-        <p>HTML embedded image test:</p>
-        <img src="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png" />
-        <br><br>
-        <img src="https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png" />
-    ]]></description>
-
-    <media:content url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png" medium="image"/>
-</item>
-
-
-
-<!-- ================= ITEM #4 (JSON-LD) ================= -->
-<item>
-    <title>Test Product - JSON LD</title>
-    <link>https://example.com/json-ld-test</link>
-    <guid isPermaLink="true">https://example.com/json-ld-test</guid>
-
-    <description><![CDATA[
-        Structured data attempt:
-
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "Experimental Feed JSONLD",
-            "image": [
-                "https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png",
-                "https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png"
-            ],
-            "url": "https://example.com/product",
-            "description": "Checking multi-image parsing using semantic markup."
-        }
-        </script>
-    ]]></description>
-</item>
-
-
-
-<!-- ================= ITEM #5 (Markdown) ================= -->
-<item>
-    <title>Test Product - Markdown embedded</title>
-    <link>https://example.com/markdown</link>
-    <guid isPermaLink="true">https://example.com/markdown</guid>
-
-    <description><![CDATA[
-        Markdown format test:
-
-        ![](https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png)
-        ![](https://pica.zhimg.com/v2-470413e4304aa3519aeb438ab64f8619_xld.png)
-    ]]></description>
-</item>
-
-
+        <media:content url="https://pic1.zhimg.com/v2-b342bc22ed7b6b5fa4cfc502f9e50acd_xld.png" medium="image"/>
+    </item>
 
 </channel>
 </rss>
