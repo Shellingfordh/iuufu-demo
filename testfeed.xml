@@ -3,6 +3,13 @@
      xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:atom="http://www.w3.org/2005/Atom">
 
+<channel>
+    <title>Automated Product Feed</title>
+    <link>https://example.com</link>
+    <description>Clean RSS for automation multi-image testing</description>
+    <atom:link href="https://example.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+
     <!-- ================= ITEM #1 (media:group) ================= -->
     <item>
         <title>Test Product - Group Method</title>
