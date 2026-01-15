@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InCosmos Art - Art you’ll actually use</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #666666;
+            --accent: #000000;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Slider */
+        .slider-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-placeholder {
+            background: #eee;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        /* Dots */
+        .dots {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: rgba(0,0,0,0.8);
+            transform: scale(1.5);
+        }
+
+        /* Modules */
+        .module-section {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 99px;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.95);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .code-display {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <nav class="sticky-nav">
+        <div class="font-bold tracking-tighter text-xl">InCosmos</div>
+        <a href="#download" class="text-sm font-semibold underline">Get App</a>
+    </nav>
+
+    <!-- Hero Slider -->
+    <div class="slider-container">
+        <!-- Slide 1: 确认动机 -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-bg">
+                <div class="w-4/5 h-3/5 image-placeholder">Hero Slide 1: [Image: High-res wallpaper showcase]</div>
+            </div>
+            <div class="relative z-10">
+                <h1 class="serif text-4xl md:text-5xl mb-4 leading-tight">Beautiful.<br>Effortless.<br>Personal.</h1>
+                <p class="text-sub mb-8 max-w-xs mx-auto text-sm">Art you’ll actually use—every day. Zero setup. Zero stress. Pure visual delight.</p>
+                <div class="space-y-2">
+                    <p class="text-xs uppercase tracking-widest font-bold">Unlock the original</p>
+                    <p class="text-xs text-sub">InCosmos has the clean, uncompressed original.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: 长期价值 -->
+        <div class="slide" id="slide-2">
+            <div class="slide-bg">
+                <div class="w-full h-full flex gap-2 px-4 py-20">
+                    <div class="flex-1 image-placeholder h-64 mt-12">[Magazine Style 1]</div>
+                    <div class="flex-1 image-placeholder h-64">[Magazine Style 2]</div>
+                    <div class="flex-1 image-placeholder h-64 mt-12">[Magazine Style 3]</div>
+                </div>
+            </div>
+            <div class="relative z-10 mt-auto mb-16">
+                <h1 class="serif text-4xl mb-3">Not just wallpapers.<br>A daily visual ritual.</h1>
+                <p class="text-sub text-sm">Art you’ll actually enjoy seeing every day.</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: 心理安全 -->
+        <div class="slide" id="slide-3">
+            <div class="slide-bg">
+                <div class="w-2/3 h-2/3 image-placeholder rounded-3xl shadow-2xl">[Image: Phone lockscreen at dawn]</div>
+            </div>
+            <div class="relative z-10 text-left w-full px-8 mt-auto mb-20">
+                <h1 class="serif text-4xl mb-4">Set it once.<br>Enjoy it every day.</h1>
+                <p class="text-sub mb-6 text-sm">Zero setup. Zero stress.<br>Designed for real screens, real habits.</p>
+                <div class="text-[10px] text-sub uppercase tracking-wider space-y-1 opacity-70">
+                    <p>• Preview on your device before applying</p>
+                    <p>• Auto-change, or just pick once and forget</p>
+                    <p>• Works without account. Cancel anytime</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- 下载模块 (单作品模式 vs 通用模式) -->
+    <section id="download" class="module-section bg-gray-50">
+        <div id="single-work-ui" class="hidden">
+            <div class="text-center mb-8">
+                <span class="text-[10px] bg-black text-white px-2 py-1 rounded">MATCH FOUND</span>
+                <h2 class="serif text-2xl mt-4">Your Curated Artwork</h2>
+            </div>
+            <div class="w-full aspect-[3/4] image-placeholder rounded-2xl mb-6 shadow-lg">
+                [Image: Featured Artwork for Code]
+            </div>
+            <div class="code-display">
+                <span id="display-code">UK2797</span>
+                <button onclick="copyCode()" class="text-xs font-bold underline">COPY CODE</button>
+            </div>
+            <p class="text-center text-xs text-sub mb-8">Copy the code above, open InCosmos Art App to get the uncompressed original.</p>
+        </div>
+
+        <div id="general-download-ui" class="text-center py-10">
+            <h2 class="serif text-3xl mb-4">Start Your Ritual</h2>
+            <p class="text-sub text-sm mb-10">Download InCosmos Art to explore daily curated collections.</p>
+        </div>
+
+        <div class="flex flex-col items-center gap-4">
+            <a href="#" class="btn-primary w-full text-center py-4">Download on App Store</a>
+            <p class="text-[10px] text-sub uppercase tracking-widest">Free to Start • No Account Required</p>
+        </div>
+    </section>
+
+    <!-- 图文叙事区块 (交错布局) -->
+    
+    <!-- 模块 A — Why InCosmos (左图右文) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="image-placeholder aspect-square rounded-2xl">
+            [Image: Social media vs High-res contrast]
+        </div>
+        <div class="fade-in">
+            <h3 class="serif text-3xl mb-4">Curated. Screen-ready. Calm.</h3>
+            <p class="text-sub text-sm leading-relaxed">Forget random web-compressed images. InCosmos provides ultra-high resolution art, perfectly tailored for every modern screen you own.</p>
+        </div>
+    </section>
+
+    <!-- 模块 B — 新用户安心 (左文右图) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-gray-50">
+        <div class="order-2 md:order-1 fade-in">
+            <h3 class="serif text-3xl mb-4">Focus on beauty,<br>not the friction.</h3>
+            <ul class="text-sub text-sm space-y-3">
+                <li><i class="fa-solid fa-check mr-2 text-black"></i> Free to start</li>
+                <li><i class="fa-solid fa-check mr-2 text-black"></i> Works without account</li>
+                <li><i class="fa-solid fa-check mr-2 text-black"></i> Cancel anytime</li>
+                <li><i class="fa-solid fa-check mr-2 text-black"></i> For phones, tablets, and foldables</li>
+            </ul>
+        </div>
+        <div class="order-1 md:order-2 image-placeholder aspect-square rounded-2xl">
+            [Image: App icon + Happy user]
+        </div>
+    </section>
+
+    <!-- 模块 C — 三步流程 (左图右文) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="image-placeholder aspect-[4/5] rounded-3xl">
+            [Image: Device showing real-time preview]
+        </div>
+        <div class="fade-in">
+            <h3 class="serif text-3xl mb-6">How it works.</h3>
+            <div class="space-y-8">
+                <div>
+                    <span class="text-2xl serif italic mr-3">01.</span>
+                    <span class="font-bold">Choose a style</span>
+                    <p class="text-sub text-xs mt-1 ml-10">Browse our curated "magazines" or search by code.</p>
+                </div>
+                <div>
+                    <span class="text-2xl serif italic mr-3">02.</span>
+                    <span class="font-bold">Preview on your device</span>
+                    <p class="text-sub text-xs mt-1 ml-10">See exactly how it looks on your lock screen instantly.</p>
+                </div>
+                <div>
+                    <span class="text-2xl serif italic mr-3">03.</span>
+                    <span class="font-bold">Apply & Forget</span>
+                    <p class="text-sub text-xs mt-1 ml-10">Download and set. Let the art become part of your day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块 D — 轻习惯机制 (左文右图) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-black text-white">
+        <div class="fade-in">
+            <h3 class="serif text-3xl mb-4 text-white">One tap, a fresh perspective.</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">Let your screen quietly change with your mood. Built for real screens and real habits, making your daily visual experience effortless.</p>
+            <p class="text-xs text-gray-500 uppercase tracking-widest">A Daily Visual Ritual</p>
+        </div>
+        <div class="image-placeholder aspect-square rounded-2xl bg-zinc-800 border-zinc-700">
+            [Image: Daily wallpaper changing animation]
+        </div>
+    </section>
+
+    <!-- 模块 E — Smart Tools (左文右图) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="fade-in">
+            <h3 class="serif text-3xl mb-6">Smart Tools.</h3>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Daily Surprise</h4>
+                        <p class="text-sub text-xs">Auto-applies a fresh wallpaper from today’s collection.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Change Mood (Pro)</h4>
+                        <p class="text-sub text-xs">Switches wallpapers based on your Favorites.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-10 h-10 bg-gray-100 rounded flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Random Favorite (Pro)</h4>
+                        <p class="text-sub text-xs">One tap to refresh from what you already love.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-8 text-xs italic text-sub">Set once, or tap when you want. Your screen keeps changing.</p>
+        </div>
+        <div class="image-placeholder aspect-[4/5] rounded-3xl">
+            [Image: Tool UI + Lockscreen states]
+        </div>
+    </section>
+
+    <!-- 模块 F — 用户画像 (左文右图) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-gray-50">
+        <div class="fade-in">
+            <h3 class="serif text-3xl mb-6">Who it’s for.</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 bg-white rounded-xl shadow-sm">
+                    <div class="text-xl mb-2">🌿</div>
+                    <div class="font-bold text-xs">Minimalists</div>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm">
+                    <div class="text-xl mb-2">🎨</div>
+                    <div class="font-bold text-xs">Creatives</div>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm">
+                    <div class="text-xl mb-2">🔍</div>
+                    <div class="font-bold text-xs">Detail Seekers</div>
+                </div>
+                <div class="p-4 bg-white rounded-xl shadow-sm">
+                    <div class="text-xl mb-2">📱</div>
+                    <div class="font-bold text-xs">Power Users</div>
+                </div>
+            </div>
+        </div>
+        <div class="image-placeholder aspect-square rounded-full">
+            [Image: Abstract persona icons]
+        </div>
+    </section>
+
+    <!-- 模块 G — 个性化解释 (左图右文) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="image-placeholder aspect-square rounded-2xl">
+            [Image: Personalized dashboard]
+        </div>
+        <div class="fade-in">
+            <h3 class="serif text-3xl mb-4">The more you explore, the better it fits.</h3>
+            <p class="text-sub text-sm leading-relaxed">Our recommendation engine learns from your tastes and device types, ensuring that every suggestion feels like it was made just for you.</p>
+        </div>
+    </section>
+
+    <!-- 模块 H — FAQ (左文右图) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-gray-50">
+        <div class="fade-in w-full">
+            <h3 class="serif text-3xl mb-8">Common Questions.</h3>
+            <div class="space-y-4">
+                <details class="group bg-white rounded-lg p-4 shadow-sm">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm">
+                        我能在 App 里找到刚才那张吗?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="text-sub text-xs mt-4 leading-relaxed">当然。通过在社媒看到的 code 码，在 App 搜索框输入即可立即定位该作品的高清原图。</p>
+                </details>
+                <details class="group bg-white rounded-lg p-4 shadow-sm">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm">
+                        为什么不直接在社媒给原图?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="text-sub text-xs mt-4 leading-relaxed">社媒平台会对图片进行剧烈的二压。我们坚持提供无损、适配不同屏幕尺寸的 4K+ 艺术，这只能在 InCosmos 官方 App 中实现。</p>
+                </details>
+                <details class="group bg-white rounded-lg p-4 shadow-sm">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm">
+                        必须订阅吗?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="text-sub text-xs mt-4 leading-relaxed">不需要。App 内提供大量免费作品，订阅仅针对 Pro 功能（如自动换图、无限收藏等）。</p>
+                </details>
+                <details class="group bg-white rounded-lg p-4 shadow-sm">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm">
+                        InCosmos Art 和 Dejavu 是一个东西吗?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="text-sub text-xs mt-4 leading-relaxed">它们是由同一团队打造的姊妹产品。InCosmos 更侧重于每日更新的策展艺术与轻习惯工具。</p>
+                </details>
+            </div>
+        </div>
+        <div class="image-placeholder aspect-square rounded-2xl hidden md:flex">
+            [Decorative Question Mark Icon]
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-20 text-center border-t border-gray-100">
+        <div class="font-bold text-2xl mb-2">InCosmos</div>
+        <p class="text-sub text-xs mb-8">Art you’ll actually use.</p>
+        <div class="flex justify-center gap-6 text-sub text-xs mb-10">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+        </div>
+        <p class="text-[10px] text-gray-400">© 2024 InCosmos Art. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hero Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // URL Parameters Logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const singleWorkUI = document.getElementById('single-work-ui');
+        const generalUI = document.getElementById('general-download-ui');
+        const displayCode = document.getElementById('display-code');
+
+        if (code) {
+            singleWorkUI.classList.remove('hidden');
+            generalUI.classList.add('hidden');
+            displayCode.innerText = code.toUpperCase();
+        }
+
+        // Copy Code Function
+        function copyCode() {
+            const text = displayCode.innerText;
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "COPIED!";
+            setTimeout(() => btn.innerText = originalText, 2000);
+        }
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
