@@ -161,6 +161,27 @@
         details summary::-webkit-details-marker {
             display: none;
         }
+
+        /* 修正后的价值声明模块样式 */
+        .statement-section {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .statement-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 0 2rem;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
@@ -254,6 +275,20 @@
         </div>
     </section>
 
+    <!-- 优化后的价值声明模块 -->
+    <section class="statement-section">
+        <div class="absolute inset-0 slide-bg image-placeholder border-none">
+            [Background: Minimalist Artwork]
+            <!-- 叠加柔和遮罩确保可读性 -->
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="statement-content fade-in">
+            <h3 class="serif text-2xl md:text-3xl leading-tight mb-6">“We don’t show everything.<br>Only what still feels right<br>after the third day.”</h3>
+            <div class="w-12 h-[1px] bg-white/30 mx-auto mb-6"></div>
+            <p class="text-xs tracking-[0.2em] uppercase opacity-70 leading-loose">Some images feel good today.<br>Fewer still feel right tomorrow.</p>
+        </div>
+    </section>
+
     <!-- 图文叙事区块 (交错布局) -->
     
     <!-- 模块 A — Why InCosmos (左图右文) -->
@@ -322,43 +357,43 @@
         </div>
     </section>
 
-    <!-- 模块 E — Smart Tools (左文右图) -->
-    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <!-- 模块 E — Smart Tools (修正布局：左图右文) -->
+    <section class="module-section grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="image-placeholder aspect-[4/5] rounded-3xl overflow-hidden">
+            [Slideshow: Daily Surprise / Mood / Random]
+        </div>
         <div class="fade-in">
-            <h3 class="serif text-3xl mb-6">Smart Tools.</h3>
-            <div class="space-y-6">
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 bg-gray-100 rounded flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3 class="serif text-4xl mb-8">Smart tools that quietly work.</h3>
+            <div class="space-y-8">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-2xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm">Daily Surprise</h4>
-                        <p class="text-sub text-xs">Auto-applies a fresh wallpaper from today’s collection.</p>
+                        <h4 class="font-bold text-sm mb-1">Daily Surprise</h4>
+                        <p class="text-sub text-[11px]">Automatically applies a fresh wallpaper from today’s collection.</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 bg-gray-100 rounded flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-moon"></i>
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-2xl flex items-center justify-center shrink-0 text-zinc-400">
+                        <i class="fa-solid fa-moon text-sm"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm">Change Mood (Pro)</h4>
-                        <p class="text-sub text-xs">Switches wallpapers based on your Favorites.</p>
+                        <h4 class="font-bold text-sm mb-1">Change Mood (Pro)</h4>
+                        <p class="text-sub text-[11px]">Switches wallpapers based on your Favorites whenever you feel like it.</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 bg-gray-100 rounded flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-shuffle"></i>
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 bg-zinc-50 rounded-2xl flex items-center justify-center shrink-0 text-zinc-400">
+                        <i class="fa-solid fa-shuffle text-sm"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm">Random Favorite (Pro)</h4>
-                        <p class="text-sub text-xs">One tap to refresh from what you already love.</p>
+                        <h4 class="font-bold text-sm mb-1">Random Favorite (Pro)</h4>
+                        <p class="text-sub text-[11px]">One tap to refresh from what you already love.</p>
                     </div>
                 </div>
             </div>
-            <p class="mt-8 text-xs italic text-sub">Set once, or tap when you want. Your screen keeps changing.</p>
-        </div>
-        <div class="image-placeholder aspect-[4/5] rounded-3xl">
-            [Image: Tool UI + Lockscreen states]
+            <p class="mt-12 text-[11px] italic text-sub border-l-2 border-zinc-100 pl-4">Set once, or tap when you want. Your screen keeps changing — without thinking about it.</p>
         </div>
     </section>
 
